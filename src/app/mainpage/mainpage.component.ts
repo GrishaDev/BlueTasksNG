@@ -12,7 +12,7 @@ export class MainpageComponent implements OnInit {
     @HostBinding('class.is-open')
     user:string = "";
 
-    data = [];
+    data:any = [];
     constructor(private userservice: UserService) { }
 
     ngOnInit() {
@@ -25,11 +25,12 @@ export class MainpageComponent implements OnInit {
         this.user = this.userservice.user;
         console.log(this.user);
 
-        // this.userservice.getData().subscribe(data => {
-        //     console.log(data);
-        // });
-        this.data = [{text:"important mission",list:"a good list",board:"bisli",labels:["general"],date:"2019-18-12",userid:"2"},
-                     {text:"hello its very good mission",list:"better list",board:"bisli",labels:["general"],date:"2026-08-12",userid:"2"}];
+        this.userservice.getData().subscribe(data => {
+            this.data = data;
+            console.log(data);
+        });
+        // this.data = [{text:"important mission",list:"a good list",board:"bisli",labels:["general"],date:"2019-18-12",userid:"2"},
+        //              {text:"hello its very good mission",list:"better list",board:"bisli",labels:["general"],date:"2026-08-12",userid:"2"}];
 
         console.log(this.data);
     }
