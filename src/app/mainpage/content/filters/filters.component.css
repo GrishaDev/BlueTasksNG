@@ -1,0 +1,12 @@
+.filters {
+    position: relative;
+   left: -50%;
+   float: left;
+}
+
+.wrapper
+{
+    position: relative;
+   left: 50%;
+   float: left;
+}

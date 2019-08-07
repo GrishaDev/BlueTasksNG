@@ -1,0 +1,5 @@
+<div class="wrapper">
+  <mat-card class="mat-elevation-z8 centered filters" color="primary">
+      <mat-checkbox *ngFor="let item of checklist" [(ngModel)]="item.isSelected" style="margin-right: 10px;" (change)="checkBoxClick(item.value,$event.checked)" color="warn">{{item.value}}</mat-checkbox>
+  </mat-card>
+</div>

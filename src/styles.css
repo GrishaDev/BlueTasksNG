@@ -4,8 +4,8 @@
 
 body,html
 {
-    background: url(assets/sky.jpg) no-repeat center center fixed;
-    /* background-color: goldenrod; */
+    /* background: url(assets/sky.jpg) no-repeat center center fixed; */
+    background-color: whitesmoke;
     background-size: cover;
     margin: 0;
     padding: 0;

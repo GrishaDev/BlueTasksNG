@@ -11,7 +11,7 @@ export class TaskComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.item);
+    // console.log(this.item);
   }
 
 }

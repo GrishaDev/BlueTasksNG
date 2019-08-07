@@ -23,16 +23,20 @@ export class MainpageComponent implements OnInit {
         // });
         // console.log("??????? "+this.userservice.user);
         this.user = this.userservice.user;
-        console.log(this.user);
+       
 
         this.userservice.getData().subscribe(data => {
             this.data = data;
             console.log(data);
         });
-        // this.data = [{text:"important mission",list:"a good list",board:"bisli",labels:["general"],date:"2019-18-12",userid:"2"},
-        //              {text:"hello its very good mission",list:"better list",board:"bisli",labels:["general"],date:"2026-08-12",userid:"2"}];
+        //2019-07-07T 9:30:00.0
+        // this.data = [{text:"important mission1",list:"a good list",board:"bisli",labels:["general"],date:"2019-07-07T09:30",userid:"2"},
+        //              {text:"important mission2",list:"better list",board:"bisli",labels:["general","meme"],date:"2026-08-12T15:20",userid:"2"},
+        //              {text:"important mission3",list:"better list",board:"bisli",labels:["bamba"],date:undefined,userid:"2"},
+        //              {text:"important mission4",list:"better list",board:"bisli",labels:["meme","test"],date:undefined,userid:"2"},
+        //              {text:"important mission5",list:"better list",board:"bisli",labels:["general"],date:"2019-08-08T13:05",userid:"2"}];
 
-        console.log(this.data);
+    
     }
 
 }
