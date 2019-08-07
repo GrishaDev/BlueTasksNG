@@ -1,2 +1,2 @@
 <app-header [user]='user'></app-header>
-<app-content [data]='data'></app-content>
+<app-content *ngIf="data.length > 0" [data]='data'></app-content>

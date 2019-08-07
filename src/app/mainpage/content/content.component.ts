@@ -18,7 +18,9 @@ export class ContentComponent implements OnInit {
   constructor(private logic:LogicService) { }
 
   ngOnInit() {
-   
+    
+    console.log("hello do i have data????????????????????????????");
+    console.log(this.data);
     // this.checkboxes = this.buildCheckBoxes();
     this.checkboxes = this.logic.buildCheckBoxes(this.data);
     // this.filterd_data = this.logic.makeData(this.data,this.checkboxes);
