@@ -1,2 +1,6 @@
 <app-header [user]='user'></app-header>
-<app-content *ngIf="data.length > 0" [data]='data'></app-content>
+<app-content *ngIf="data.length > 0" [data]='data' class="content"></app-content>
+<div *ngIf="data.length == 0" class="error">
+    <mat-icon style="font-size: 3em; margin-right: 0.5em">sentiment_dissatisfied</mat-icon>
+    <p style="color:red; font-size: 2em">No data found</p>
+</div>

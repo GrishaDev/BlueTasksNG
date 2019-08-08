@@ -13,10 +13,25 @@
 	}
 }
 
+@keyframes slideInFromLeft2 {
+    0% {
+      transform: translateX(-1000%);
+    }
+    /* 90% {
+      transform: translateX(+2%);
+    } */
+    100% {
+        transform: translateX(0);
+      }
+  }
+
+
 
 .poop
 {
     transition-duration: 0.5s;
+    /* animation: 1s ease-out 0s 1 slideInFromLeft2; */
+    
 }
 .poop:hover
 {
@@ -28,6 +43,7 @@
     max-width: 400px;
     min-width: 300px;
     transition-duration: 0.5s;
+    /* background-color: rgb(240, 240, 240); */
   }
 
 /* .example-card:hover

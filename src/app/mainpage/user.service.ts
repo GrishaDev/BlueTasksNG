@@ -9,17 +9,21 @@ const host = ''
 export class UserService {
 
   user:string = "";
+  id:string = "";
   constructor(private http:HttpClient){}
 
   @Output() change: EventEmitter<string> = new EventEmitter();
+  @Output() change2: EventEmitter<string> = new EventEmitter();
 
   getData()
   {
-    return this.http.get(host+'/api/data/'+this.user);
+    return this.http.get(host+'/api/data/'+this.id);
   }
 
-  set(user) {
+  set(user,id) {
     this.user = user;
+    this.id = id;
     this.change.emit(this.user);
+    this.change.emit(this.id);
   }
 }

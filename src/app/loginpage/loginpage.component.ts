@@ -17,7 +17,7 @@ export class LoginpageComponent implements OnInit {
     username: string;
     // password: string;
     // isvalid:boolean = false;
-    // err:string;
+    err:string;
 
     user = new FormControl('', [Validators.required, Validators.email]);
 
@@ -26,49 +26,43 @@ export class LoginpageComponent implements OnInit {
     ngOnInit() {
     }
 
-    // getErrorMessage() {
-    // return this.user.hasError('required') ? 'You must enter a value' :
-    //     this.user.hasError('email') ? 'Not a valid email' :
-    //         '';
+    // login():void
+    // {
+    //     this.userservice.set(this.username);
+    //     this.router.navigate(["home"]);
     // }
-
-    login():void
+    login() : void 
     {
-        this.userservice.set(this.username);
-        this.router.navigate(["home"]);
-    }
-  // login() : void 
-  //   {
-  //     let it = this;
+      let it = this;
 
-  //     const req = this.http.post('/api/loginsubmit', {
-  //       "user": this.username,
-  //       "pass": this.password
-  //     })
-  //     .subscribe(
-  //       function(res:any)
-  //       {
-  //         console.log(res);
+      const req = this.http.post('/api/checkuser', {
+        "name": this.username,
+      })
+      .subscribe(
+        (res:any)=>
+        {
+          console.log(res);
   
-  //         if(res.auth)
-  //         {
-  //           it.router.navigate(["main"]);
-  //         }
-  //         else
-  //         {
-  //           it.err = "Invalid credentials";
-  //         }
-  //       },
-  //       err => {
-  //         console.log("Error occured+ :: "+err);
-  //         it.err = "Error connecting";
-  //       }
-  //     );
-  //   }
+          if(res.status)
+          {
+            this.userservice.set(this.username,res.id);
+            it.router.navigate(["home"]);
+          }
+          else
+          {
+            it.err = "Invalid user";
+          }
+        },
+        err => {
+          console.log("Error occured+ :: "+err);
+          it.err = "Error connecting";
+        }
+      );
+    }
 
-  //   inputChanged($event)
-  //   {
-  //     this.err="";
-  //   }
+    inputChanged($event)
+    {
+      this.err="";
+    }
 
 }

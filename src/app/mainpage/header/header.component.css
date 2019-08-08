@@ -13,3 +13,17 @@
     text-align: center;
     font-size: 2em;
 }
+
+.logout
+{
+    transition-duration: 0.5s;
+    font-size: 36px;
+    padding: 0;
+    margin-bottom: 7.5px;
+    margin-right: 7.5px;
+}
+
+.logout:hover
+{
+    color: red;
+}

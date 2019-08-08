@@ -2,16 +2,19 @@
   loginpage works!
 </p> -->
 
-<div class="form mat-elevation-z8">
-    
-        <div class="header">
-            Hello
-        </div>
-        <div class="example-container area">
-            <mat-form-field>
-                <input matInput placeholder="User" class="input" [(ngModel)]="username">
-            </mat-form-field>
-            <br>
-            <button mat-raised-button (click)="login()" color="primary" class="submit" >Check</button>      
-        </div>
-</div>
+<!-- <div class="all"> -->
+    <div class="form mat-elevation-z8">
+        
+            <div class="header">
+                Hello
+            </div>
+            <div class="example-container area">
+                <mat-form-field>
+                    <input matInput placeholder="User" class="input" [(ngModel)]="username" (input)="inputChanged($event)">
+                </mat-form-field>
+                <br>
+                <button mat-raised-button (click)="login()" color="primary" class="submit" >Check</button> 
+                <p class="error">{{err}}</p>     
+            </div>
+    </div>
+<!-- </div> -->

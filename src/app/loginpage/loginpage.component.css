@@ -1,17 +1,37 @@
+@keyframes slideInFromTop {
+    0% {
+      transform: translateY(100%);
+    }
+    /* 90% {
+      transform: translateX(+2%);
+    } */
+    100% {
+        transform: translateY(50%);
+      }
+  }
+
+
 *
 {
+    
     font-size: 1.2em;
 }
+/* .all
+{
+    animation: 1s ease-out 0s 1 slideInFromTop;
+} */
+
 .form
 {
-    position: fixed; /* or absolute */
+    position: fixed;
     top: 50%;
     left: 50%;
     /* bring your own prefixes */
     transform: translate(-50%, -50%);
-    background-color: rgba(192, 192, 192, 0.75);
+    background-color: rgba(139, 139, 139, 0.548);
     height: 500px;
     width: 700px;
+    
     /* box-shadow: 0 2px 2px rgba(0,0,0,.24), 0 0 2px rgba(0,0,0,.12); */
 }
 
@@ -51,6 +71,14 @@ example-container {
 {
     position: absolute;
     bottom: 25%;
+}
+
+.error
+{
+    color:red;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
 }
 /* .input
 {
