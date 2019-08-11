@@ -47,7 +47,7 @@ export class ContentComponent implements OnInit {
       let date:Date = new Date(this.filterd_data[i].date);
       if(!isNaN(date.getTime()))
       {
-        this.filterd_data[i].date = date;
+        this.filterd_data[i].date = date.toLocaleString();
       }
       else
         this.filterd_data[i].date="none";
@@ -104,6 +104,7 @@ export class ContentComponent implements OnInit {
 
   dataChanged(data: any)
   {
+    console.log("???");
     let isallunchecked:boolean = this.logic.isAllUnchecked(data);
 
     if(!isallunchecked)
