@@ -1,4 +1,7 @@
-<app-filters [checklist]='checkboxes' (newdata)="dataChanged($event)"></app-filters>
-<div class="all">
+<div class="filters">
+    <app-filters [checklist]='checkboxes' [boardlist]='boardlist' (data_labeled)="LabelsChanged($event)" (data_boarded)="BoardsChanged($event)"
+    (time)="timeChange($event)"></app-filters>
+</div>
+<div class="content">
     <app-task *ngFor="let item of filterd_data" [item]='item' class="spaceout"></app-task>
 </div>

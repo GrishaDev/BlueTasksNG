@@ -8,9 +8,12 @@ import { LogicService } from '../logic.service';
 })
 export class FiltersComponent implements OnInit {
 
-  // checklist = [{value:"waw",isSelected:false},{value:"waw2",isSelected:false},{value:"waw2",isSelected:false}];
   @Input() checklist;
-  @Output() newdata: EventEmitter<any> =   new EventEmitter();
+  @Input() boardlist;
+
+  @Output() data_labeled: EventEmitter<any> =  new EventEmitter();
+  @Output() data_boarded: EventEmitter<any> =  new EventEmitter();
+  @Output() time: EventEmitter<String> =  new EventEmitter();
 
   constructor(private logic:LogicService) { }
 
@@ -18,37 +21,55 @@ export class FiltersComponent implements OnInit {
 
   }
 
-  checkBoxClick(filter:string,checked:boolean)
+  filterClick(filter:string,checked:boolean)
   {
-    
-
     if(checked)
     {
-      // this.checkedfilters.push(filter);
       this.checklist = this.logic.tickChecklist(this.checklist,filter,true);
-      // console.log(this.checklist);
-      // console.log("You checked "+checked+" and here checked filters: "+this.checkedfilters);
-      this.newdata.emit(this.checklist);
+      this.data_labeled.emit(this.checklist);
     }
     else
     {
       this.checklist = this.logic.tickChecklist(this.checklist,filter,false);
-
-      // console.log("You checked "+checked+" and here checked filters: "+this.checkedfilters);
       let checkedfilters = this.logic.getCheckedFilters(this.checklist);
       if(checkedfilters.length == 0)
       {
 
-        this.newdata.emit(this.checklist);
-        // console.log("here u should get init data..");
-        // this.dataSource = new MatTableDataSource<Server>(SERVER_DATA);
-        // setTimeout(() => {this.dataSource.paginator = this.paginator; this.dataSource.sort = this.sort;});
+        this.data_labeled.emit(this.checklist);
       }
       else
       {
-        this.newdata.emit(this.checklist);
+        this.data_labeled.emit(this.checklist);
       }
     }
+  }
+
+  boardClick(filter:string,checked:boolean)
+  {
+    if(checked)
+    {
+      this.boardlist = this.logic.tickChecklist(this.boardlist,filter,true);
+      this.data_boarded.emit(this.boardlist);
+    }
+    else
+    {
+      this.boardlist = this.logic.tickChecklist(this.boardlist,filter,false);
+      let checkedfilters = this.logic.getCheckedFilters(this.boardlist);
+      if(checkedfilters.length == 0)
+      {
+
+        this.data_boarded.emit(this.boardlist);
+      }
+      else
+      {
+        this.data_boarded.emit(this.boardlist);
+      }
+    }
+  }
+
+  timeClick(type:string)
+  {
+    this.time.emit(type);
   }
 
 }

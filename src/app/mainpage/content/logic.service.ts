@@ -77,7 +77,6 @@ export class LogicService {
       
       for(let j=0; j<checked.length; j++)
       {
-        //currentdata[i].date != undefined
         if(currentdata[i].date != "none" && checked[j]=="deadline" && !used_data[i])
         {
           if(!this.sameObjectAlreadyThere(newdata,currentdata[i]))
@@ -85,7 +84,41 @@ export class LogicService {
         }
       }
     }
+    return newdata;
+  }
 
+  filterBoards(data,checkedfilters)
+  {
+    let currentdata = data;
+    let newdata = [];
+    let once = true;
+    let used_data = [];
+
+    let checked = this.getCheckedFilters(checkedfilters);
+
+    for(let i=0; i<currentdata.length; i++)
+    {
+        for(let j=0; j<checked.length; j++)
+        {
+          if(currentdata[i].board == checked[j])
+          {
+            if(!this.sameObjectAlreadyThere(newdata,currentdata[i]))
+            {
+              newdata.push(currentdata[i]);
+              used_data.push(true);
+            }
+          }
+        }
+      
+      // for(let j=0; j<checked.length; j++)
+      // {
+      //   if(currentdata[i].date != "none" && checked[j]=="deadline" && !used_data[i])
+      //   {
+      //     if(!this.sameObjectAlreadyThere(newdata,currentdata[i]))
+      //       newdata.push(currentdata[i]);
+      //   }
+      // }
+    }
     return newdata;
   }
 
@@ -137,5 +170,21 @@ export class LogicService {
       }
     }
     return true;
+  }
+
+  buildBoardList(data)
+  {
+    let board:string;
+    let checklist = [];
+
+    for(let i=0; i<data.length; i++)
+    {
+      board = data[i].board;
+      if(!this.filterExists(checklist,board))
+      {
+        checklist.push({value:board,isSelected:false})
+      }
+    }
+    return checklist;
   }
 }

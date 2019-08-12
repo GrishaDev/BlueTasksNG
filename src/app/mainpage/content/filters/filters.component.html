@@ -1,5 +1,48 @@
-<div class="wrapper">
+<!-- <div class="wrapper">
   <mat-card class="mat-elevation-z8 centered filters" color="primary">
       <mat-checkbox *ngFor="let item of checklist" [(ngModel)]="item.isSelected" style="margin-right: 10px;" (change)="checkBoxClick(item.value,$event.checked)" color="warn">{{item.value}}</mat-checkbox>
   </mat-card>
+</div> -->
+
+<div class="filteroptions">
+  <div class="item mat-elevation-z2" (click)="timeClick('today')">
+    <mat-icon>today</mat-icon> Today
+  </div>
+  <div class="item mat-elevation-z2" (click)="timeClick('7')">
+    <mat-icon>event</mat-icon> Next 7 days
+  </div>
+  <div class="item mat-elevation-z2" (click)="timeClick('all')">
+    <mat-icon>date_range</mat-icon> All
+  </div>
+  <!-- <div class="item">
+    <mat-icon>assignment</mat-icon> By board
+  </div> -->
+  <mat-expansion-panel class="item">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="expansiontitle">
+          <mat-icon>assignment</mat-icon> Boards
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+        <div class="expansionbody">
+          <mat-checkbox *ngFor="let item of boardlist" [(ngModel)]="item.isSelected" style="margin-right: 10px;" 
+          (change)="boardClick(item.value,$event.checked)" color="warn">{{item.value}}</mat-checkbox>
+        </div>
+  </mat-expansion-panel>
+  <!-- <div class="item">
+    <mat-icon>label</mat-icon> By Label
+  </div> -->
+  <mat-expansion-panel class="item">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="expansiontitle">
+          <mat-icon>label</mat-icon>  Labels
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+        <!-- <div class="iteminside" *ngFor="let item of checklist" (onclick)="checkBoxClick(item.value,$event.checked)">
+            <mat-icon>label_important</mat-icon> {{item.value}}
+        </div> -->
+        <div class="expansionbody">
+          <mat-checkbox *ngFor="let item of checklist" [(ngModel)]="item.isSelected" style="margin-right: 10px;" 
+          (change)="filterClick(item.value,$event.checked)" color="warn">{{item.value}}</mat-checkbox>
+        </div>
+  </mat-expansion-panel>
 </div>

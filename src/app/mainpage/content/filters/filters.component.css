@@ -6,7 +6,50 @@
 
 .wrapper
 {
-    position: relative;
+   position: relative;
    left: 50%;
    float: left;
+   background-color: red;
+}
+
+.filteroptions
+{
+    padding: 20px;
+    font-size: 2em;
+    font-display: bold;
+    width: 50%;
+}
+
+.item
+{
+    background-color: white;
+    transition-duration: 0.5s;
+    margin-top: 10px;
+}
+
+.iteminside
+{
+    
+}
+.iteminside:hover
+{
+    background-color: lightgray;
+}
+/* .item:hover
+{
+    background-color: lightblue;
+} */
+
+.expansiontitle
+{
+    font-size: 2em;
+    font-display: bold;
+    padding: 0px;
+    margin: 0px;
+}
+
+.expansionbody
+{
+    display: flex;
+    flex-direction: column;
 }

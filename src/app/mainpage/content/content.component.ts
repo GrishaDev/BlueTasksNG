@@ -12,6 +12,7 @@ export class ContentComponent implements OnInit {
   @Input() data;
   filterd_data = [];
   checkboxes = [];
+  boardlist = [];
   filterd_data_nodate = [];
   filterd_data_yesdate = [];
 
@@ -19,23 +20,14 @@ export class ContentComponent implements OnInit {
 
   ngOnInit() {
     
-    console.log("hello do i have data????????????????????????????");
-    console.log(this.data);
-    // this.checkboxes = this.buildCheckBoxes();
+
     this.checkboxes = this.logic.buildCheckBoxes(this.data);
-    // this.filterd_data = this.logic.makeData(this.data,this.checkboxes);
+    this.boardlist = this.logic.buildBoardList(this.data);
     this.filterd_data = this.data;
-    // this.sortData();
-    // this.filterd_data.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
     this.datasort();
 
     this.sortDates();
-    // this.filterd_data.sort((a, b)=>{ 
-        
-    //     return +new Date(a.date) - +new Date(b.date); 
-    // }); 
-    // this.filterd_data.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-    // this.filterd_data.sort();
 
   }
 
@@ -43,7 +35,7 @@ export class ContentComponent implements OnInit {
   {
     for(let i=0; i<this.filterd_data.length; i++)
     {
-      // if(this.filterd_data[i].date)
+
       let date:Date = new Date(this.filterd_data[i].date);
       if(!isNaN(date.getTime()))
       {
@@ -52,7 +44,6 @@ export class ContentComponent implements OnInit {
       else
         this.filterd_data[i].date="none";
     }
-    // this.filterd_data = this.bubbleSort(this.filterd_data);
   }
 
   sortDates()
@@ -78,41 +69,57 @@ export class ContentComponent implements OnInit {
 
     this.filterd_data = this.filterd_data_yesdate.concat(this.filterd_data_nodate);
   }
-  // bubbleSort(items) {
-  //   var length = items.length;
-  //   for (var i = 0; i < length; i++) { //Number of passes
-  //     for (var j = 0; j < (length - i - 1); j++) { //Notice that j < (length - i)
-  //       //Compare the adjacent positions
-        
-  //       if (items[j].date > items[j + 1].date) {
-  //         console.log("true");
-  //         //Swap the numbers
-  //         var tmp = items[j]; //Temporary variable to hold the current number
-  //         items[j] = items[j + 1]; //Replace current number with adjacent number
-  //         items[j + 1] = tmp; //Replace adjacent number with current number
-  //       }
-  //     }
-  //   }
-  //   return items;
-  // }
 
-  // sortData() {
-  //   return this.filterd_data.sort((a, b) => {
-  //     return <any>new Date(b.date) - <any>new Date(a.date);
-  //   });
-  // }
 
-  dataChanged(data: any)
+  LabelsChanged(data: any)
   {
-    console.log("???");
-    let isallunchecked:boolean = this.logic.isAllUnchecked(data);
+    // let isallunchecked:boolean = this.logic.isAllUnchecked(data);
 
-    if(!isallunchecked)
-      this.filterd_data = this.logic.makeData(this.data,data);
+    // if(!isallunchecked)
+    //   this.filterd_data = this.logic.makeData(this.data,data);
+    // else
+    //   this.filterd_data = this.data;
+
+    // this.sortDates();
+    this.checkboxes = data;
+    this.updateData();
+  }
+
+  BoardsChanged(data: any)
+  {
+    // let isallunchecked:boolean = this.logic.isAllUnchecked(data);
+
+    // if(!isallunchecked)
+    //   this.filterd_data = this.logic.makeData(this.data,data);
+    // else
+    //   this.filterd_data = this.data;
+
+    // this.sortDates();
+    this.boardlist = data;
+    this.updateData();
+  }
+
+  updateData()
+  {
+    let isalluncheckedFilters:boolean = this.logic.isAllUnchecked(this.checkboxes);
+    // let isalluncheckedBoards:boolean = this.logic.isAllUnchecked(this.boardlist);
+
+    if(!isalluncheckedFilters)
+      this.filterd_data = this.logic.makeData(this.data,this.checkboxes);
     else
       this.filterd_data = this.data;
 
+    let isalluncheckedBoards:boolean = this.logic.isAllUnchecked(this.boardlist);
+
+    if(!isalluncheckedBoards)
+      this.filterd_data = this.logic.filterBoards(this.filterd_data,this.boardlist);
+
     this.sortDates();
+  }
+
+  timeChange(time:string)
+  {
+    console.log(time);
   }
  
 }
