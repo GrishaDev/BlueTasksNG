@@ -15,18 +15,26 @@
 .filteroptions
 {
     padding: 20px;
-    font-size: 2em;
+    font-size: 1.5em;
     font-display: bold;
     width: 50%;
 }
 
 .item
 {
-    background-color: white;
+    /* background-color: white; */
     transition-duration: 0.5s;
     margin-top: 10px;
 }
 
+.itemselected
+{
+    background-color: lightgray;
+}
+.item:hover
+{
+    background-color: lightgray;
+}
 .iteminside
 {
     
@@ -40,9 +48,14 @@
     background-color: lightblue;
 } */
 
+.expansion
+{
+    background-color: rgba(245, 245, 245, 0);
+    margin-top: 10px;
+}
 .expansiontitle
 {
-    font-size: 2em;
+    font-size: 1.5em;
     font-display: bold;
     padding: 0px;
     margin: 0px;

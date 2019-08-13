@@ -3,5 +3,7 @@
     (time)="timeChange($event)"></app-filters>
 </div>
 <div class="content">
-    <app-task *ngFor="let item of filterd_data" [item]='item' class="spaceout"></app-task>
+    <div class="scrollable">
+        <app-task *ngFor="let item of filterd_data" [item]='item' class="spaceout"></app-task>
+    </div>
 </div>

@@ -122,6 +122,48 @@ export class LogicService {
     return newdata;
   }
 
+  timeFilter(data,time)
+  {
+    let newdata = [];
+    if(time == "all")
+      return data;
+    
+    for(let i=0; i<data.length; i++)
+    {
+      if(time == "today")
+      {
+        if(this.isToday(new Date(data[i].date)))
+        {
+          newdata.push(data[i]);
+        }
+      }
+      else
+      {
+        if(this.isNext7days(new Date(data[i].date)))
+        {
+          newdata.push(data[i]);
+        }
+      }
+    }
+    return newdata;
+  }
+
+  isToday = (someDate) => {
+    const today = new Date()
+    return someDate.getDate() == today.getDate() &&
+      someDate.getMonth() == today.getMonth() &&
+      someDate.getFullYear() == today.getFullYear()
+  }
+
+  isNext7days(somedate)
+  {
+    const today = new Date();
+    const inweek = new Date()
+    inweek.setDate(today.getDate() + 7);
+
+    return(somedate.getTime() > today.getTime() && somedate.getTime() < inweek.getTime());
+  }
+
   sameObjectAlreadyThere(newdata,currentdata)
   {
     for(let i=0; i<newdata.length; i++)

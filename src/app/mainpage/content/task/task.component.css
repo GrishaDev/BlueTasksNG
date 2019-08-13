@@ -34,10 +34,81 @@
 }
 .poop:hover
 {
-    box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);
+    /* box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2); */
     transform: translateY(-5%);
 }
 
+.task
+{
+  position: relative;
+  width: 45%;
+  height: 100px;
+  background-color: white;
+  margin-top: 20px;
+  margin-left: 25px;
+  padding: 0;
+}
+
+.header
+{
+  position: absolute;
+  display: flex;
+  height: 30%;
+  width: 100%;
+  background-color: lightgray;
+  padding: 0;
+  margin: 0;
+  flex-direction: row;
+  justify-content: space-around;
+  font-weight: bold;
+}
+
+.content
+{
+  position: absolute;
+  height: 70%;
+  top: 30%;
+  padding: 10px;
+}
+
+.datearea
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.listarea
+{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.labelarea
+{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.boardarea
+{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.textarea
+{
+  position: absolute;
+  left: 25%;
+  top: 12.5%;
+  width: 50%;
+  height: 75%;
+  /* background-color: red; */
+  text-align: left;
+}
 .example-card {
     max-width: 400px;
     min-width: 300px;

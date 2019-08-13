@@ -1,4 +1,4 @@
-<div class="poop">
+<!-- <div class="poop">
   <mat-card class="example-card mat-elevation-z8">
       <mat-card-header>
 
@@ -16,5 +16,42 @@
         <mat-card-subtitle>Deadline: {{ item.date }}</mat-card-subtitle>
         <mat-card-subtitle>Tags: {{ item.labels }}</mat-card-subtitle>
       </mat-card-actions>
+  </mat-card>
+</div> -->
+
+<div class="poop">
+  <mat-card class="task mat-elevation-z8">
+    <!-- <div class="datearea">
+       Deadline: {{ item.date }}
+    </div>
+    <div class="listarea">
+        List: {{ item.list }}
+    </div>
+    <div class="labelarea">
+        Labels: {{ item.labels }}
+    </div>
+    <div class="boardarea">
+        Board: {{ item.board }}
+    </div>
+    <div class="textarea">
+        {{ item.text }}
+    </div> -->
+    <div class="header">
+      <div>
+        Deadline: {{ item.date }}
+      </div>
+      <div>
+        Labels: {{ item.labels }}
+      </div>
+      <div>
+        List: {{ item.list }}
+      </div>
+      <div>
+        Board: {{ item.board }}
+      </div>
+    </div>
+    <div class="content">
+      {{ item.text }}
+    </div>
   </mat-card>
 </div>

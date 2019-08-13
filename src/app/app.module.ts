@@ -13,7 +13,7 @@ import { ContentComponent } from './mainpage/content/content.component';
 import { TaskComponent } from './mainpage/content/task/task.component';
 
 import {MatButtonModule,MatIconModule,MatInputModule,MatFormFieldModule,MatToolbarModule
-,MatCardModule,MatCheckboxModule,MatExpansionModule} from '@angular/material';
+,MatCardModule,MatCheckboxModule,MatExpansionModule,MatDividerModule,MatTreeModule} from '@angular/material';
 import { FiltersComponent } from './mainpage/content/filters/filters.component';
 
 const appRoutes: Routes =
@@ -45,6 +45,8 @@ const appRoutes: Routes =
     MatCardModule,
     MatCheckboxModule,
     MatExpansionModule,
+    MatDividerModule,
+    MatTreeModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],

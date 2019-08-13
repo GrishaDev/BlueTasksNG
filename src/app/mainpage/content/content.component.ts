@@ -15,6 +15,7 @@ export class ContentComponent implements OnInit {
   boardlist = [];
   filterd_data_nodate = [];
   filterd_data_yesdate = [];
+  time:string = "all";
 
   constructor(private logic:LogicService) { }
 
@@ -28,6 +29,8 @@ export class ContentComponent implements OnInit {
     this.datasort();
 
     this.sortDates();
+
+    // console.log("kjsadjasd "+this.logic.isNext7days(new Date("2019-08-20T09:30")));
 
   }
 
@@ -114,12 +117,14 @@ export class ContentComponent implements OnInit {
     if(!isalluncheckedBoards)
       this.filterd_data = this.logic.filterBoards(this.filterd_data,this.boardlist);
 
+    this.filterd_data = this.logic.timeFilter(this.filterd_data,this.time);
     this.sortDates();
   }
 
   timeChange(time:string)
   {
-    console.log(time);
+    this.time=time;
+    this.updateData();
   }
  
 }

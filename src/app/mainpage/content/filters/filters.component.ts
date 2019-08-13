@@ -15,6 +15,8 @@ export class FiltersComponent implements OnInit {
   @Output() data_boarded: EventEmitter<any> =  new EventEmitter();
   @Output() time: EventEmitter<String> =  new EventEmitter();
 
+  type:string = "all";
+
   constructor(private logic:LogicService) { }
 
   ngOnInit() {
@@ -69,6 +71,7 @@ export class FiltersComponent implements OnInit {
 
   timeClick(type:string)
   {
+    this.type = type;
     this.time.emit(type);
   }
 
