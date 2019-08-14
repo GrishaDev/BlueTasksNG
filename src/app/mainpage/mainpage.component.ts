@@ -1,6 +1,10 @@
 import { Component, OnInit,HostBinding, Host, ChangeDetectorRef } from '@angular/core';
 import { UserService } from './user.service';
+import { OverlayContainer} from '@angular/cdk/overlay';
 // import { hostname } from 'os';
+
+const dark = 'dark-theme';
+const light = 'default-theme';
 
 @Component({
   selector: 'app-mainpage',
@@ -10,11 +14,14 @@ import { UserService } from './user.service';
 export class MainpageComponent implements OnInit {
 
     @HostBinding('class.is-open')
+    
+    // @HostBinding('class') componentCssClass;
+
     user:string = "";
 
     data:any = [];
 
-    constructor(private userservice: UserService,private cd: ChangeDetectorRef) { }
+    constructor(private userservice: UserService,private cd: ChangeDetectorRef,public overlayContainer: OverlayContainer) { }
 
     ngOnInit() {
         // console.log("hello?");
@@ -34,7 +41,7 @@ export class MainpageComponent implements OnInit {
         // });
 
         //2019-07-07T 9:30:00.0
-        
+
         this.data = [{text:"important mission1",list:"a good list",board:"bisli",labels:["general"],date:"2019-08-13T09:30",userid:"2"},
                      {text:"important mission2",list:"better list",board:"bisli2",labels:["general","meme"],date:"2026-08-12T15:20",userid:"2"},
                      {text:"important mission3",list:"better list",board:"bisli",labels:["bamba"],date:"none",userid:"2"},
@@ -49,5 +56,23 @@ export class MainpageComponent implements OnInit {
 
     
     }
+
+    // onThemeChange(isdarktheme:boolean)
+    // {
+    //     if(isdarktheme)
+    //     {
+    //     this.overlayContainer.getContainerElement().classList.add(dark);
+    //     this.overlayContainer.getContainerElement().classList.remove(light);
+    //     this.componentCssClass = dark;
+    //     localStorage.setItem("theme", dark);
+    //     }
+    //     else
+    //     {
+    //     this.overlayContainer.getContainerElement().classList.add(light);
+    //     this.overlayContainer.getContainerElement().classList.remove(dark);
+    //     this.componentCssClass = light;
+    //     localStorage.setItem("theme", light);
+    //     }
+    // }
 
 }

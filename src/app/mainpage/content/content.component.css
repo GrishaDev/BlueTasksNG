@@ -10,6 +10,17 @@
       }
   }
 
+  @keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-100%);
+    }
+    /* 90% {
+      transform: translateX(+2%);
+    } */
+    100% {
+        transform: translateX(0%);
+      }
+  }
 
 .rightside
 {
@@ -49,6 +60,8 @@
     /* background-color: rgba(0, 0, 255, 0.171); */
      bottom: 0;
     left: 0;
+    width: 10%;
+    /* width: 50%; */
     /* width: 10%;
     height: 10%;
     margin: 200px; */
@@ -67,6 +80,7 @@
     position: absolute;
     height: 100%;
     background-color: rgb(236, 236, 236);
+    animation: 1s ease-out 0s 1 slideInFromLeft;
     /* background-color: blue; */
 }
 .spaceout
