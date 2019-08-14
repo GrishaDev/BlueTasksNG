@@ -1,6 +1,16 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { LogicService } from './logic.service';
 import { ifStmt } from '@angular/compiler/src/output/output_ast';
+import {MatDialog,MAT_DIALOG_DATA,MatDialogRef,MatPaginator,MatTableDataSource,MatSort} from '@angular/material';
+
+export interface Data {
+  text: string,
+  list: string,
+  board: string,
+  labels: Array<String>,
+  date: String
+}
+
 
 @Component({
   selector: 'app-content',
@@ -11,11 +21,14 @@ export class ContentComponent implements OnInit {
 
   @Input() data;
   filterd_data = [];
+  filterd_data_backup = [];
   checkboxes = [];
   boardlist = [];
   filterd_data_nodate = [];
   filterd_data_yesdate = [];
   time:string = "all";
+  searchValue:string = "";
+  datasource;
 
   constructor(private logic:LogicService) { }
 
@@ -29,7 +42,7 @@ export class ContentComponent implements OnInit {
     this.datasort();
 
     this.sortDates();
-
+    this.datasource = new MatTableDataSource<Data>(this.filterd_data);
     // console.log("kjsadjasd "+this.logic.isNext7days(new Date("2019-08-20T09:30")));
 
   }
@@ -119,6 +132,8 @@ export class ContentComponent implements OnInit {
 
     this.filterd_data = this.logic.timeFilter(this.filterd_data,this.time);
     this.sortDates();
+
+    this.datasource = new MatTableDataSource<Data>(this.filterd_data);
   }
 
   timeChange(time:string)
@@ -126,5 +141,10 @@ export class ContentComponent implements OnInit {
     this.time=time;
     this.updateData();
   }
- 
+  
+  searched(value:string)
+  {
+    this.datasource.filter = value.trim().toLowerCase();
+    this.filterd_data = this.datasource.filteredData;
+  }
 }
