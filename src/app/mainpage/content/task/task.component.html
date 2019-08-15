@@ -36,7 +36,7 @@
     <div class="textarea">
         {{ item.text }}
     </div> -->
-    <div class="header">
+    <div class="header color-primary-bg">
       <div>
         Deadline: {{ item.date }}
       </div>
@@ -52,6 +52,9 @@
     </div>
     <div class="content">
       {{ item.text }}
+    </div>
+    <div class="delete" (click)="deleteTask(item.id)">
+      <mat-icon>done</mat-icon>
     </div>
   </mat-card>
 </div>

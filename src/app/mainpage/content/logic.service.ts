@@ -109,15 +109,32 @@ export class LogicService {
             }
           }
         }
-      
-      // for(let j=0; j<checked.length; j++)
-      // {
-      //   if(currentdata[i].date != "none" && checked[j]=="deadline" && !used_data[i])
-      //   {
-      //     if(!this.sameObjectAlreadyThere(newdata,currentdata[i]))
-      //       newdata.push(currentdata[i]);
-      //   }
-      // }
+    }
+    return newdata;
+  }
+
+  filterByLists(data,checkedfilters)
+  {
+    let currentdata = data;
+    let newdata = [];
+    let once = true;
+    let used_data = [];
+
+    let checked = this.getCheckedFilters(checkedfilters);
+
+    for(let i=0; i<currentdata.length; i++)
+    {
+        for(let j=0; j<checked.length; j++)
+        {
+          if(currentdata[i].list == checked[j])
+          {
+            if(!this.sameObjectAlreadyThere(newdata,currentdata[i]))
+            {
+              newdata.push(currentdata[i]);
+              used_data.push(true);
+            }
+          }
+        }
     }
     return newdata;
   }
@@ -225,6 +242,22 @@ export class LogicService {
       if(!this.filterExists(checklist,board))
       {
         checklist.push({value:board,isSelected:false})
+      }
+    }
+    return checklist;
+  }
+
+  buildLists(data)
+  {
+    let list:string;
+    let checklist = [];
+
+    for(let i=0; i<data.length; i++)
+    {
+      list = data[i].list;
+      if(!this.filterExists(checklist,list))
+      {
+        checklist.push({value:list,isSelected:false})
       }
     }
     return checklist;

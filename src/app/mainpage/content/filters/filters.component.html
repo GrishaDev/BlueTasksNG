@@ -5,20 +5,17 @@
 </div> -->
 
 <!-- mat-elevation-z2 -->
+<!-- itemselected -->
 <div class="filteroptions">
-  <div class="item" (click)="timeClick('today')" [ngClass]="{'itemselected':type=='today'}">
+  <div class="item" (click)="timeClick('today')" [ngClass]="{'color-primary-bg':type=='today'}"> 
     <mat-icon>today</mat-icon> Today
   </div>
-  <div class="item" (click)="timeClick('7')" [ngClass]="{'itemselected':type=='7'}">
-    <mat-icon>event</mat-icon> Next 7 days
+  <div class="item" (click)="timeClick('7')" [ngClass]="{'color-primary-bg':type=='7'}">
+    <mat-icon>event</mat-icon> Next week
   </div>
-  <div class="item" (click)="timeClick('all')" [ngClass]="{'itemselected':type=='all'}">
+  <div class="item" (click)="timeClick('all')" [ngClass]="{'color-primary-bg':type=='all'}">
     <mat-icon>date_range</mat-icon> All
   </div>
-  <!-- <div class="item">
-    <mat-icon>assignment</mat-icon> By board
-  </div> -->
-
 
   <mat-expansion-panel class="expansion mat-elevation-z0">
       <mat-expansion-panel-header>
@@ -32,15 +29,18 @@
         </div>
   </mat-expansion-panel>
 
-  <!-- <mat-tree class="item">
-      <mat-tree-node> parent node </mat-tree-node>
-      <mat-tree-node> -- child node1 </mat-tree-node>
-      <mat-tree-node> -- child node2 </mat-tree-node>
-  </mat-tree> -->
+  <mat-expansion-panel class="expansion mat-elevation-z0">
+    <mat-expansion-panel-header>
+      <mat-panel-title class="expansiontitle">
+        <mat-icon>list</mat-icon>  Lists
+      </mat-panel-title>
+    </mat-expansion-panel-header>
 
-  <!-- <div class="item">
-    <mat-icon>label</mat-icon> By Label
-  </div> -->
+      <div class="expansionbody">
+        <mat-checkbox *ngFor="let item of listslist" [(ngModel)]="item.isSelected" style="margin-right: 10px;" 
+        (change)="ListClick(item.value,$event.checked)" color="warn">{{item.value}}</mat-checkbox>
+      </div>
+  </mat-expansion-panel>
 
   <mat-expansion-panel class="expansion mat-elevation-z0">
       <mat-expansion-panel-header>
@@ -56,7 +56,3 @@
   </mat-expansion-panel>
 
 </div>
-<!-- <mat-divider vertical style="height: 1000px"></mat-divider> -->
-        <!-- <div class="iteminside" *ngFor="let item of checklist" (onclick)="checkBoxClick(item.value,$event.checked)">
-            <mat-icon>label_important</mat-icon> {{item.value}}
-        </div> -->

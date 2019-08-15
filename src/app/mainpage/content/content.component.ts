@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input,Output,EventEmitter } from '@angular/core';
 import { LogicService } from './logic.service';
 import { ifStmt } from '@angular/compiler/src/output/output_ast';
 import {MatDialog,MAT_DIALOG_DATA,MatDialogRef,MatPaginator,MatTableDataSource,MatSort} from '@angular/material';
@@ -20,10 +20,13 @@ export interface Data {
 export class ContentComponent implements OnInit {
 
   @Input() data;
+  @Output() refreshRoot: EventEmitter<any> =  new EventEmitter(); 
+
   filterd_data = [];
   filterd_data_backup = [];
   checkboxes = [];
   boardlist = [];
+  listslist = [];
   filterd_data_nodate = [];
   filterd_data_yesdate = [];
   time:string = "all";
@@ -33,20 +36,22 @@ export class ContentComponent implements OnInit {
   constructor(private logic:LogicService) { }
 
   ngOnInit() {
-    
+    this.init()
+  }
 
+  init()
+  {
     this.checkboxes = this.logic.buildCheckBoxes(this.data);
     this.boardlist = this.logic.buildBoardList(this.data);
+    this.listslist = this.logic.buildLists(this.data);
+
     this.filterd_data = this.data;
 
     this.datasort();
 
     this.sortDates();
     this.datasource = new MatTableDataSource<Data>(this.filterd_data);
-    // console.log("kjsadjasd "+this.logic.isNext7days(new Date("2019-08-20T09:30")));
-
   }
-
   datasort()
   {
     for(let i=0; i<this.filterd_data.length; i++)
@@ -89,36 +94,25 @@ export class ContentComponent implements OnInit {
 
   LabelsChanged(data: any)
   {
-    // let isallunchecked:boolean = this.logic.isAllUnchecked(data);
-
-    // if(!isallunchecked)
-    //   this.filterd_data = this.logic.makeData(this.data,data);
-    // else
-    //   this.filterd_data = this.data;
-
-    // this.sortDates();
     this.checkboxes = data;
     this.updateData();
   }
 
   BoardsChanged(data: any)
   {
-    // let isallunchecked:boolean = this.logic.isAllUnchecked(data);
-
-    // if(!isallunchecked)
-    //   this.filterd_data = this.logic.makeData(this.data,data);
-    // else
-    //   this.filterd_data = this.data;
-
-    // this.sortDates();
     this.boardlist = data;
+    this.updateData();
+  }
+
+  ListsChanged(data:any)
+  {
+    this.listslist = data;
     this.updateData();
   }
 
   updateData()
   {
     let isalluncheckedFilters:boolean = this.logic.isAllUnchecked(this.checkboxes);
-    // let isalluncheckedBoards:boolean = this.logic.isAllUnchecked(this.boardlist);
 
     if(!isalluncheckedFilters)
       this.filterd_data = this.logic.makeData(this.data,this.checkboxes);
@@ -129,6 +123,11 @@ export class ContentComponent implements OnInit {
 
     if(!isalluncheckedBoards)
       this.filterd_data = this.logic.filterBoards(this.filterd_data,this.boardlist);
+
+    let isalluncheckedLists:boolean = this.logic.isAllUnchecked(this.listslist);
+
+    if(!isalluncheckedLists)
+      this.filterd_data = this.logic.filterByLists(this.filterd_data,this.listslist);
 
     this.filterd_data = this.logic.timeFilter(this.filterd_data,this.time);
     this.sortDates();
@@ -146,5 +145,18 @@ export class ContentComponent implements OnInit {
   {
     this.datasource.filter = value.trim().toLowerCase();
     this.filterd_data = this.datasource.filteredData;
+  }
+
+  refresh(id)
+  {
+    console.log("refresh");
+    // this.refreshRoot.emit();
+
+    console.log(id);
+    const index = this.data.findIndex(item => item.id == id);
+    this.data.splice(index,1);
+
+    this.init();
+
   }
 }

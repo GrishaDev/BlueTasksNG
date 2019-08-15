@@ -1,12 +1,12 @@
 <div class="filters">
-    <app-filters [checklist]='checkboxes' [boardlist]='boardlist' (data_labeled)="LabelsChanged($event)" (data_boarded)="BoardsChanged($event)"
-    (time)="timeChange($event)"></app-filters>
+    <app-filters [checklist]='checkboxes' [boardlist]='boardlist' [listslist] = 'listslist' (data_labeled)="LabelsChanged($event)" (data_boarded)="BoardsChanged($event)"
+    (time)="timeChange($event)" (data_listed)="ListsChanged($event)"></app-filters>
 </div>
 
 <!-- <div class="rightside">  -->
     <div class="content">
         <div class="scrollable">
-            <app-task *ngFor="let item of filterd_data" [item]='item' class="spaceout"></app-task>
+            <app-task *ngFor="let item of filterd_data" [item]='item' class="spaceout" (refresh)="refresh($event)"></app-task>
         </div>
     </div>
     <div class="bot">

@@ -20,6 +20,11 @@ export class UserService {
     return this.http.get(host+'/api/data/'+this.id);
   }
 
+  deleteTask(id)
+  {
+    return this.http.post(host+'/api/deletetask/',{id: id});
+  }
+
   set(user,id) {
     this.user = user;
     this.id = id;

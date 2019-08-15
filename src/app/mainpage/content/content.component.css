@@ -1,3 +1,4 @@
+
 @keyframes slideInFromRight {
     0% {
       transform: translateX(100%);
@@ -21,6 +22,11 @@
         transform: translateX(0%);
       }
   }
+
+.test
+{
+    color: my-app-primary;
+}
 
 .rightside
 {
