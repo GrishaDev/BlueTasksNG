@@ -7,13 +7,13 @@
 <!-- mat-elevation-z2 -->
 <!-- itemselected -->
 <div class="filteroptions">
-  <div class="item" (click)="timeClick('today')" [ngClass]="{'color-primary-bg':type=='today'}"> 
+  <div class="item" (click)="timeClick('today')" [ngClass]="{'color-white':type=='today'}"> 
     <mat-icon>today</mat-icon> Today
   </div>
-  <div class="item" (click)="timeClick('7')" [ngClass]="{'color-primary-bg':type=='7'}">
+  <div class="item" (click)="timeClick('7')" [ngClass]="{'color-white':type=='7'}">
     <mat-icon>event</mat-icon> Next week
   </div>
-  <div class="item" (click)="timeClick('all')" [ngClass]="{'color-primary-bg':type=='all'}">
+  <div class="item" (click)="timeClick('all')" [ngClass]="{'color-white':type=='all'}">
     <mat-icon>date_range</mat-icon> All
   </div>
 

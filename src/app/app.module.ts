@@ -13,9 +13,10 @@ import { ContentComponent } from './mainpage/content/content.component';
 import { TaskComponent } from './mainpage/content/task/task.component';
 
 import {MatButtonModule,MatIconModule,MatInputModule,MatFormFieldModule,MatToolbarModule
-,MatCardModule,MatCheckboxModule,MatExpansionModule,MatDividerModule,MatTreeModule,MatMenuModule,MatSnackBarModule} from '@angular/material';
+,MatCardModule,MatCheckboxModule,MatExpansionModule,MatDividerModule,MatTreeModule,MatMenuModule,MatSnackBarModule,MatListModule} from '@angular/material';
 import { FiltersComponent } from './mainpage/content/filters/filters.component';
 import { SearchComponent } from './mainpage/content/search/search.component';
+import { TaskbetterComponent } from './mainpage/content/taskbetter/taskbetter.component';
 
 const appRoutes: Routes =
 [
@@ -32,7 +33,8 @@ const appRoutes: Routes =
     ContentComponent,
     TaskComponent,
     FiltersComponent,
-    SearchComponent
+    SearchComponent,
+    TaskbetterComponent
   ],
   imports: [
     BrowserModule,
@@ -51,6 +53,7 @@ const appRoutes: Routes =
     MatTreeModule,
     MatMenuModule,
     MatSnackBarModule,
+    MatListModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],

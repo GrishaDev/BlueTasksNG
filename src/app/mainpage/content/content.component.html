@@ -6,7 +6,8 @@
 <!-- <div class="rightside">  -->
     <div class="content">
         <div class="scrollable">
-            <app-task *ngFor="let item of filterd_data" [item]='item' class="spaceout" (refresh)="refresh($event)"></app-task>
+            <!-- <app-task *ngFor="let item of filterd_data" [item]='item' class="spaceout" (refresh)="refresh($event)"></app-task> -->
+            <app-taskbetter *ngFor="let item of filterd_data" [item]='item' class="spaceout" (refresh)="refresh($event)"></app-taskbetter>
         </div>
     </div>
     <div class="bot">
