@@ -1,4 +1,35 @@
-<mat-list>
+<!-- <mat-list *ngIf="time != '7'">
+  <mat-list-item *ngIf="time == 'today'"><p><small>{{ item.date.split(',')[1] }}</small></p></mat-list-item>
+  <mat-list-item *ngIf="time == 'all'"><p><small>{{ item.date }}</small></p></mat-list-item>
+  <mat-divider></mat-divider>
   <mat-list-item>{{ item.text }}</mat-list-item>
   <mat-divider></mat-divider>
 </mat-list>
+
+<mat-list *ngIf="time == '7'">
+  <mat-list-item><p><small>{{ item.date.split(',')[1] }}</small></p></mat-list-item>
+  <mat-divider></mat-divider>
+  <div class="content">
+    <mat-list-item>{{ item.text }}</mat-list-item>
+  </div>
+  <mat-divider></mat-divider>
+</mat-list> -->
+
+<div *ngIf="time != '7'" class="task">
+    <p *ngIf="time == 'today'"><small>{{ item.date.split(',')[1] }}</small></p>
+    <p *ngIf="time == 'all'"><small>{{ item.date }}</small></p>
+    <mat-divider></mat-divider>
+    <div class="content">
+        {{ item.text }}
+    </div>
+    <mat-divider></mat-divider>
+</div>
+
+<div *ngIf="time == '7'" class="task">
+    <p><small>{{ item.date.split(',')[1] }}</small></p>
+    <mat-divider></mat-divider>
+    <div class="content">
+        {{ item.text }}
+    </div>
+    <mat-divider></mat-divider>
+</div>

@@ -42,11 +42,11 @@ export class MainpageComponent implements OnInit {
 
         //2019-07-07T 9:30:00.0
 
-        this.data = [{id:"1",text:"important mission1",list:"a good list",board:"bisli",labels:["general"],date:"2019-08-13T09:30",userid:"2"},
-                     {id:"2",text:"important mission2",list:"better list",board:"bisli2",labels:["general","meme"],date:"2026-08-12T15:20",userid:"2"},
-                     {id:"3",text:"important mission3",list:"better list",board:"bisli",labels:["bamba"],date:"none",userid:"2"},
+        this.data = [{id:"1",text:"important mission1",list:"a good list",board:"bisli",labels:["general"],date:"2019-08-29T09:30",userid:"2"},
+                     {id:"2",text:"important mission2",list:"better list",board:"bisli2",labels:["general","meme"],date:"2019-08-29T15:20",userid:"2"},
+                     {id:"3",text:"important mission3",list:"better list",board:"bisli",labels:["bamba"],date:"2019-09-02T15:20",userid:"2"},
                      {id:"5",text:"important mission4",list:"better list",board:"bisli",labels:["meme","test"],date:undefined,userid:"2"},
-                     {id:"13",text:"important mission5",list:"better list",board:"bisli",labels:["general"],date:"2019-08-17T14:05",userid:"2"},
+                     {id:"13",text:"important mission5",list:"better list",board:"bisli",labels:["general"],date:"2019-09-03T14:05",userid:"2"},
                      {id:"139",text:"make pizza",list:"pro",board:"goodboard",labels:["meme"],date:"2019-08-15T13:05",userid:"2"}];
 
         // this.data = [{text:"important mission4",list:"better list",board:"bisli",labels:["meme","test"],date:"none",userid:"2"},

@@ -147,7 +147,7 @@ export class LogicService {
     
     for(let i=0; i<data.length; i++)
     {
-      if(time == "today")
+      if(time === "today")
       {
         if(this.isToday(new Date(data[i].date)))
         {
@@ -175,10 +175,11 @@ export class LogicService {
   isNext7days(somedate)
   {
     const today = new Date();
-    const inweek = new Date()
+    today.setHours(0,0,0,0);
+    const inweek = new Date();
     inweek.setDate(today.getDate() + 7);
 
-    return(somedate.getTime() > today.getTime() && somedate.getTime() < inweek.getTime());
+    return(somedate.getTime() >= today.getTime() && somedate.getTime() < inweek.getTime());
   }
 
   sameObjectAlreadyThere(newdata,currentdata)

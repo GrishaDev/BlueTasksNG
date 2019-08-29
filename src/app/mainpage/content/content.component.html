@@ -7,7 +7,56 @@
     <div class="content">
         <div class="scrollable">
             <!-- <app-task *ngFor="let item of filterd_data" [item]='item' class="spaceout" (refresh)="refresh($event)"></app-task> -->
-            <app-taskbetter *ngFor="let item of filterd_data" [item]='item' class="spaceout" (refresh)="refresh($event)"></app-taskbetter>
+
+            <!-- <p *ngIf="time == 'today'"> <b>Today</b>  <small>{{ aweek[0].toLocaleString().split(',')[0] }}</small></p>
+            <p *ngIf="time == 'all'"> <b>All</b></p>
+            <p *ngIf="time == '7'">
+                <b *ngFor="let day of aweek">{{ day }} </b>
+            </p> -->
+
+            <!-- <app-taskbetter *ngFor="let item of filterd_data" [item]='item' [time]='time' class="spaceout" (refresh)="refresh($event)"></app-taskbetter> -->
+
+            <!-- <mat-list> -->
+                <!-- <mat-list-item *ngIf="time == 'today'"><p> <b>Today</b>  <small>{{ aweek[0].toLocaleString().split(',')[0] }}</small></p></mat-list-item>
+                <mat-list-item *ngIf="time == 'all'"><p><b>All</b></p></mat-list-item>
+                <mat-list-item *ngIf="time == '7'"><p><b>Next 7 days</b></p></mat-list-item> -->
+
+                <h4 mat-line *ngIf="time == 'today'"><b>Today</b>  <small>{{ aweek[0].toLocaleString().split(',')[0] }}</small></h4>
+                <h4 mat-line *ngIf="time == 'all'"><b>All</b></h4>
+                <h4 mat-line *ngIf="time == '7'"><b>Next 7 days</b></h4>
+                
+                <div *ngIf="time != '7'" style="padding: 20px">
+                    <app-taskbetter *ngFor="let item of filterd_data" [item]='item' [time]='time' [aweek]='aweek' class="spaceout" (refresh)="refresh($event)"></app-taskbetter>
+                </div>
+
+                <div *ngIf="time == '7'">
+                    <div *ngFor="let day of aweek; let i = index" style="padding: 20px">
+                        <b *ngIf="i === 0">Today</b>
+                        <b *ngIf="i === 1">Tomorrow</b>
+                        <b *ngIf="i > 1">{{ weekdays[day.getDay()] }}</b>
+
+                        <div *ngFor="let item of filterd_data" class="toright">
+                            <app-taskbetter *ngIf="todayCheck(item,day)" [item]='item' [time]='time' [aweek]='aweek' (refresh)="refresh($event)"></app-taskbetter> 
+                        </div>
+                    </div>
+                </div>
+                <!-- <mat-list *ngIf="time != '7'">
+                    <app-taskbetter *ngFor="let item of filterd_data" [item]='item' [time]='time' [aweek]='aweek' class="spaceout" (refresh)="refresh($event)"></app-taskbetter>
+                </mat-list>
+
+                <ng-container *ngIf="time == '7'">
+
+                    <mat-list *ngFor="let day of aweek; let i = index" style="padding-bottom: 15px">
+                        <mat-list-item> <b>{{ weekdays[day.getDay()] }}</b>  </mat-list-item>
+ 
+                        <mat-list *ngFor="let item of filterd_data">
+                            <app-taskbetter *ngIf="todayCheck(item,day)" [item]='item' [time]='time' [aweek]='aweek' (refresh)="refresh($event)"></app-taskbetter> 
+                        </mat-list>
+
+                    </mat-list>
+
+                </ng-container> -->
+
         </div>
     </div>
     <div class="bot">

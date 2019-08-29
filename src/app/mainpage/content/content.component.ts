@@ -24,6 +24,7 @@ export class ContentComponent implements OnInit {
 
   filterd_data = [];
   filterd_data_backup = [];
+  week_filterd_data = [];
   checkboxes = [];
   boardlist = [];
   listslist = [];
@@ -32,7 +33,9 @@ export class ContentComponent implements OnInit {
   time:string = "all";
   searchValue:string = "";
   datasource;
-
+  aweek = []
+  weekdays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+  
   constructor(private logic:LogicService) { }
 
   ngOnInit() {
@@ -51,6 +54,20 @@ export class ContentComponent implements OnInit {
 
     this.sortDates();
     this.datasource = new MatTableDataSource<Data>(this.filterd_data);
+
+    this.buildaweek();
+  }
+
+  buildaweek()
+  {
+    let today = new Date();
+    // const inweek = new Date();
+    // inweek.setDate(today.getDate() + 7);
+    for(let i=0; i<7; i++)
+    {
+      this.aweek.push(new Date(today));
+      today.setDate(today.getDate() + 1);
+    }
   }
   datasort()
   {
@@ -133,12 +150,14 @@ export class ContentComponent implements OnInit {
     this.sortDates();
 
     this.datasource = new MatTableDataSource<Data>(this.filterd_data);
+
   }
 
   timeChange(time:string)
   {
     this.time=time;
     this.updateData();
+    console.log(this.filterd_data);
   }
   
   searched(value:string)
@@ -158,5 +177,11 @@ export class ContentComponent implements OnInit {
 
     this.init();
 
+  }
+
+  todayCheck(item,date)
+  {
+    let itemdate = new Date(item.date);
+    return (itemdate.getDay() == date.getDay());
   }
 }

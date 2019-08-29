@@ -10,6 +10,8 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 export class TaskbetterComponent implements OnInit {
 
   @Input() item;
+  @Input() time;
+  @Input() aweek;
   @Output() refresh: EventEmitter<string> =  new EventEmitter();
 
   constructor(private userservice: UserService,private snackBar: MatSnackBar) { }
