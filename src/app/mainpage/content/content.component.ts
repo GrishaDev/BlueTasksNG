@@ -35,7 +35,9 @@ export class ContentComponent implements OnInit {
   datasource;
   aweek = []
   weekdays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-  
+  // taskhover:boolean = false;
+  // item:any = [];
+
   constructor(private logic:LogicService) { }
 
   ngOnInit() {
@@ -179,9 +181,26 @@ export class ContentComponent implements OnInit {
 
   }
 
+  // hoveroutput(item)
+  // {
+  //   if(item.hover)
+  //   {
+  //     console.log("hello this is shit");
+  //     this.taskhover=true;
+  //     this.item = item.item;
+  //     console.log(this.item);
+  //   }
+  //   else
+  //   {
+  //     this.taskhover= false;
+  //   }
+
+  // }
+
   todayCheck(item,date)
   {
     let itemdate = new Date(item.date);
     return (itemdate.getDay() == date.getDay());
   }
+
 }

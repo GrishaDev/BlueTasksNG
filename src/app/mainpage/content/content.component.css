@@ -23,6 +23,18 @@
       }
   }
 
+
+  
+/* @media only screen and (max-width: 400px) {
+    filters {
+        width: 5%;
+        position: absolute;
+        height: 100%;
+        background-color: rgb(236, 236, 236);
+        animation: 1s ease-out 0s 1 slideInFromLeft;
+    }
+  } */
+  
 .test
 {
     color: my-app-primary;
@@ -81,13 +93,11 @@
 .filters
 {
     width: 30%;
-    /* right: 30%; */
-    /* height: 100%; */
+    /* min-width: 300px; */
     position: absolute;
     height: 100%;
     background-color: rgb(236, 236, 236);
     animation: 1s ease-out 0s 1 slideInFromLeft;
-    /* background-color: blue; */
 }
 .spaceout
 {
@@ -97,4 +107,20 @@
 .toright
 {
   padding-left: 20px;
+}
+
+.info
+{
+    position: absolute;
+    /* background-color: green; */
+    width: 30%;
+    right: 0;
+    height: 50%;
+    top: 0;
+    padding: 10px;
+}
+
+.data
+{
+    padding-top: 20px;
 }

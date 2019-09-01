@@ -14,15 +14,23 @@
   </div>
   <mat-divider></mat-divider>
 </mat-list> -->
+<!-- (mouseenter) = "hover(true)"  (mouseleave) = "hover(false)" -->
+<!-- [ngClass]="isexpand ? 'contentexpand' : 'content'" -->
 
-<div *ngIf="time != '7'" class="task">
+<div *ngIf="time != '7'" class="task" >
     <p *ngIf="time == 'today'"><small>{{ item.date.split(',')[1] }}</small></p>
     <p *ngIf="time == 'all'"><small>{{ item.date }}</small></p>
     <mat-divider></mat-divider>
-    <div class="content">
+    <div class="content" [style.height.px]="height">
         {{ item.text }}
+        <div class="contentbot" *ngIf="isexpand">
+           <div> Labels: {{ item.labels }} </div>
+           <div> list {{ item.list }} </div>
+           <div> board: {{ item.board }} </div>
+        </div>
     </div>
     <mat-divider></mat-divider>
+    <mat-icon class="icon" (click)="expand()" >expand_more</mat-icon>
 </div>
 
 <div *ngIf="time == '7'" class="task">
@@ -33,3 +41,12 @@
     </div>
     <mat-divider></mat-divider>
 </div>
+
+<!-- <div class="info">
+    <p class="data">List: {{ item.list }} </p>
+    <mat-divider></mat-divider>
+    <p class="data">Board: {{ item.board }} </p>
+    <mat-divider></mat-divider>
+    <p class="data">Labels: {{ item.labels }} </p>
+    <mat-divider></mat-divider>
+</div> -->

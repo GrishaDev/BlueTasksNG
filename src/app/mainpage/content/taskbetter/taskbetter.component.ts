@@ -13,6 +13,9 @@ export class TaskbetterComponent implements OnInit {
   @Input() time;
   @Input() aweek;
   @Output() refresh: EventEmitter<string> =  new EventEmitter();
+  // @Output() onhoveroutput: EventEmitter<any> =  new EventEmitter();
+  isexpand:boolean = false;
+  height:number = 30;
 
   constructor(private userservice: UserService,private snackBar: MatSnackBar) { }
 
@@ -49,7 +52,22 @@ export class TaskbetterComponent implements OnInit {
       }
     );
    }
-  
+   
+  //  hover(type)
+  //  {
+  //   let item = {item: this.item, hover: type};
+  //   this.onhoveroutput.emit(item);
+  //  }
+
+  expand()
+  {
+    this.isexpand = !this.isexpand;
+
+    if(this.isexpand)
+      this.height = 100;
+    else
+      this.height = 30;
+  }
    openSnackBar(message: string, action: string) {
     this.snackBar.open(message, action, {
       duration: 4000,

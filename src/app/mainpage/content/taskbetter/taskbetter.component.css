@@ -1,11 +1,12 @@
 .task
 {
     width: 50%;
+    padding-top: 20px;
 }
 .content
 {
-    /* background-color: red; */
-    transition: all 0.2s ease-in-out; 
+    position: relative;
+    transition: all 0.5s ease-in-out; 
     left: 0;
     top: 0;
     height: 30px;
@@ -13,8 +14,57 @@
     padding: 15px;
 }
 
-.content:hover
+.contentexpand
 {
-    /* transform: scaleY(2); */
+    transition: all 0.5s ease-in-out; 
+    left: 0;
+    top: 0;
     height: 100px;
+    width: 100%;
+    padding: 15px;
 }
+
+.contentbot
+{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.divider
+{
+    border-width: 2px;
+    /* border-style: solid; */
+}
+
+.info
+{
+    position: absolute;
+    /* background-color: green; */
+    width: 30%;
+    right: 0;
+    height: 50%;
+    top: 0;
+    padding: 10px;
+}
+
+.data
+{
+    padding-top: 20px;
+}
+
+.icon
+{
+    bottom: 0;
+    position: relative;
+}
+/* .content:hover
+{
+
+    height: 100px;
+} */
+
+    /* transform: scaleY(2); */
