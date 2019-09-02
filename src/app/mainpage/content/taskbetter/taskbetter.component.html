@@ -17,29 +17,54 @@
 <!-- (mouseenter) = "hover(true)"  (mouseleave) = "hover(false)" -->
 <!-- [ngClass]="isexpand ? 'contentexpand' : 'content'" -->
 
-<div *ngIf="time != '7'" class="task" >
-    <p *ngIf="time == 'today'"><small>{{ item.date.split(',')[1] }}</small></p>
-    <p *ngIf="time == 'all'"><small>{{ item.date }}</small></p>
-    <mat-divider></mat-divider>
-    <div class="content" [style.height.px]="height">
-        {{ item.text }}
-        <div class="contentbot" *ngIf="isexpand">
-           <div> Labels: {{ item.labels }} </div>
-           <div> list {{ item.list }} </div>
-           <div> board: {{ item.board }} </div>
+<div *ngIf="time != '7'" class="task" [style.height.%]="height">
+
+        <div class="side" (click)="expand()">
+            <mat-icon class="icon" >{{ expandvalue }}</mat-icon>
         </div>
-    </div>
-    <mat-divider></mat-divider>
-    <mat-icon class="icon" (click)="expand()" >expand_more</mat-icon>
+
+        <div class="therest">
+            <p *ngIf="time == 'today'"><small>{{ item.date.split(',')[1] }}</small></p>
+            <p *ngIf="time == 'all'"><small>{{ item.date }}</small></p>
+            <mat-divider></mat-divider>
+            <div class="content" >
+                {{ item.text }}
+                <div class="contentbot" *ngIf="isexpand">
+                    <div> Labels: {{ item.labels }} </div>
+                    <div> list {{ item.list }} </div>
+                    <div> board: {{ item.board }} </div>
+                </div>
+            </div>
+            <mat-divider></mat-divider>
+        </div>
 </div>
 
-<div *ngIf="time == '7'" class="task">
-    <p><small>{{ item.date.split(',')[1] }}</small></p>
+<div *ngIf="time == '7'" class="task" [style.height.%]="height">
+
+    <div class="side" (click)="expand()">
+        <mat-icon class="icon" >{{ expandvalue }}</mat-icon>
+    </div>
+
+    <div class="therest">
+        <p><small>{{ item.date.split(',')[1] }}</small></p>
+        <mat-divider></mat-divider>
+        <div class="content" >
+            {{ item.text }}
+            <div class="contentbot" *ngIf="isexpand">
+                <div> Labels: {{ item.labels }} </div>
+                <div> list {{ item.list }} </div>
+                <div> board: {{ item.board }} </div>
+            </div>
+        </div>
+        <mat-divider></mat-divider>
+    </div>
+
+    <!-- <p><small>{{ item.date.split(',')[1] }}</small></p>
     <mat-divider></mat-divider>
     <div class="content">
         {{ item.text }}
     </div>
-    <mat-divider></mat-divider>
+    <mat-divider></mat-divider> -->
 </div>
 
 <!-- <div class="info">

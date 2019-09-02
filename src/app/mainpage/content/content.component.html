@@ -5,7 +5,9 @@
 
 <!-- <div class="rightside">  -->
     <div class="content">
-        <div class="scrollable">
+
+        <!-- <div class="scrollable"> -->
+
             <!-- <app-task *ngFor="let item of filterd_data" [item]='item' class="spaceout" (refresh)="refresh($event)"></app-task> -->
 
             <!-- <p *ngIf="time == 'today'"> <b>Today</b>  <small>{{ aweek[0].toLocaleString().split(',')[0] }}</small></p>
@@ -25,18 +27,21 @@
                 <h4 mat-line *ngIf="time == 'all'"><b>All</b></h4>
                 <h4 mat-line *ngIf="time == '7'"><b>Next 7 days</b></h4>
 
-                <div *ngIf="time != '7'" style="padding: 20px">
+                <!-- style="padding: 20px; background-color: blue"> -->
+                <div *ngIf="time != '7'" class="more">
                     <app-taskbetter *ngFor="let item of filterd_data" [item]='item' [time]='time' [aweek]='aweek' class="spaceout" (refresh)="refresh($event)"></app-taskbetter>
+                    <!-- <app-taskbetter2 *ngFor="let item of filterd_data" class="spaceout"></app-taskbetter2> -->
                 </div>
 
-                <div *ngIf="time == '7'">
-                    <div *ngFor="let day of aweek; let i = index" style="padding: 20px">
+                <div *ngIf="time == '7'" class="more">
+                    <div *ngFor="let day of aweek; let i = index" class="aday" >
                         <b *ngIf="i === 0">Today</b>
                         <b *ngIf="i === 1">Tomorrow</b>
                         <b *ngIf="i > 1">{{ weekdays[day.getDay()] }}</b>
 
-                        <div *ngFor="let item of filterd_data" class="toright">
-                            <app-taskbetter *ngIf="todayCheck(item,day)" [item]='item' [time]='time' [aweek]='aweek' (refresh)="refresh($event)"></app-taskbetter> 
+                        <div *ngFor="let item of filterd_data">
+                            <!-- <app-taskbetter *ngIf="todayCheck(item,day)" [item]='item' [time]='time' [aweek]='aweek' (refresh)="refresh($event)" class="spaceout toright"></app-taskbetter>  -->
+                            <app-taskbetter2 class="spaceout"></app-taskbetter2>
                         </div>
                     </div>
                 </div>
@@ -65,7 +70,11 @@
                 <p class="data">Labels: {{ item.labels }}</p>
                 <mat-divider></mat-divider>
             </div>      -->
-        </div>
+
+
+        <!-- </div> -->
+
+
     </div>
     <div class="bot">
         <app-search (searchValue)="searched($event)"></app-search>

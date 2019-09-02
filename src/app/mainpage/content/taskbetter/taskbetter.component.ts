@@ -15,7 +15,8 @@ export class TaskbetterComponent implements OnInit {
   @Output() refresh: EventEmitter<string> =  new EventEmitter();
   // @Output() onhoveroutput: EventEmitter<any> =  new EventEmitter();
   isexpand:boolean = false;
-  height:number = 30;
+  height:number = 100;
+  expandvalue:string = "expand_more";
 
   constructor(private userservice: UserService,private snackBar: MatSnackBar) { }
 
@@ -64,9 +65,15 @@ export class TaskbetterComponent implements OnInit {
     this.isexpand = !this.isexpand;
 
     if(this.isexpand)
-      this.height = 100;
+    {
+      this.height = 200;
+      this.expandvalue = "expand_less";
+    }
     else
-      this.height = 30;
+    {
+      this.height = 100;
+      this.expandvalue = "expand_more";
+    }
   }
    openSnackBar(message: string, action: string) {
     this.snackBar.open(message, action, {

@@ -17,6 +17,7 @@ import {MatButtonModule,MatIconModule,MatInputModule,MatFormFieldModule,MatToolb
 import { FiltersComponent } from './mainpage/content/filters/filters.component';
 import { SearchComponent } from './mainpage/content/search/search.component';
 import { TaskbetterComponent } from './mainpage/content/taskbetter/taskbetter.component';
+import { Taskbetter2Component } from './mainpage/content/taskbetter2/taskbetter2.component';
 
 const appRoutes: Routes =
 [
@@ -34,7 +35,8 @@ const appRoutes: Routes =
     TaskComponent,
     FiltersComponent,
     SearchComponent,
-    TaskbetterComponent
+    TaskbetterComponent,
+    Taskbetter2Component
   ],
   imports: [
     BrowserModule,

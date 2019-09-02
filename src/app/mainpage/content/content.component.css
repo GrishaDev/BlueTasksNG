@@ -61,17 +61,26 @@
     height: 90%;
     /* background-color: red; */
     padding-left: 25px;
+    overflow-y: auto;
+    overflow-x: auto;
     /* background-color: green; */
 }
 
-.scrollable
+/* .scrollable
 {
     position: relative;
     height: 100%;
     overflow-y: auto;
     overflow-x: auto;
-}
+} */
 
+.more
+{
+    position: relative;
+    /* background-color: blue; */
+    /* width: 50%; */
+    padding: 30px;
+}
 .bot
 {
     position: absolute;
@@ -101,9 +110,22 @@
 }
 .spaceout
 {
+    /* background-color: blue;
+    position: relative; */
+    /* padding: 30px; */
+    /* background-color: yellow; */
     padding: 30px;
+    position: relative;
 }
 
+.aday
+{
+    position: relative;
+    /* height: 100%;
+    width: 100%; */
+    padding-top: 30px;
+    /* background-color: green; */
+}
 .toright
 {
   padding-left: 20px;

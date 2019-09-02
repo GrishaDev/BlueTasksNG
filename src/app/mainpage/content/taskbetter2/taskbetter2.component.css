@@ -1,0 +1,31 @@
+.hara
+{
+    height: 50%;
+    width: 100%;
+    background-color: pink !important; 
+    position: relative;
+}
+
+.side
+{
+    height: 100%;
+    width: 5%;
+    left: 0;
+    background-color: gray;
+    position: absolute;
+}
+
+.rest
+{
+    height: 100%;
+    width: 95%;
+    right: 0;
+    background-color: yellow;
+    position: absolute;
+}
+
+.icon
+{
+    display: flex;
+    align-items: center;
+}
