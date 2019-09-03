@@ -1,12 +1,12 @@
 .hara
 {
-    height: 100px;
+    height: 150px;
     width: 50%;
     /* background-color: pink !important;  */
     position: relative;
     margin-top: 30px;
     margin-left: 20px;
-    transition: all 0.5s ease-in-out; 
+    transition: all 0.3s ease-in-out; 
 }
 
 .side
@@ -51,4 +51,18 @@
     transition: all 0.5s ease-in-out; 
     padding-left: 15px;
     bottom: 0;
+}
+
+.delete
+{
+    right: 0;
+    position: absolute;
+    bottom: 0;
+    padding-top: 30px;
+    padding-right: 30px;
+}
+
+.delete:hover
+{
+    color: red;
 }

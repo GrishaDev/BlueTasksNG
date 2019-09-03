@@ -14,7 +14,8 @@ const light = 'default-theme';
 export class MainpageComponent implements OnInit {
 
     @HostBinding('class.is-open')
-    
+    @HostBinding('class') componentCssClass;
+
     // @HostBinding('class') componentCssClass;
 
     user:string = "";
@@ -31,23 +32,28 @@ export class MainpageComponent implements OnInit {
         // });
         // console.log("??????? "+this.userservice.user);
         this.user = this.userservice.user;
-       
+        
+        // this.overlayContainer.getContainerElement().classList.add(dark);
+        // this.overlayContainer.getContainerElement().classList.remove(light);
+        // this.componentCssClass = dark;
 
-        // this.userservice.getData().subscribe(data => {
+        this.userservice.getData().subscribe(data => {
 
-        //     this.data = data;
-        //     this.cd.detectChanges();
-        //     console.log(data);
-        // });
+            this.data = data;
+            this.cd.detectChanges();
+            console.log(data);
+        });
 
         //2019-07-07T 9:30:00.0
 
-        this.data = [{id:"1",text:"important mission1",list:"a good list",board:"bisli",labels:["general"],date:"2019-09-03T09:30",userid:"2"},
-                     {id:"2",text:"important mission2",list:"better list",board:"bisli2",labels:["general","meme"],date:"2019-09-03T15:20",userid:"2"},
-                     {id:"3",text:"important mission3",list:"better list",board:"bisli",labels:["bamba"],date:"2019-09-06T15:20",userid:"2"},
-                     {id:"5",text:"important mission4",list:"better list",board:"bisli",labels:["meme","test"],date:undefined,userid:"2"},
-                     {id:"13",text:"important mission5",list:"better list",board:"bisli",labels:["general"],date:"2019-09-08T14:05",userid:"2"},
-                     {id:"139",text:"make pizza",list:"pro",board:"goodboard",labels:["meme"],date:"2019-08-15T13:05",userid:"2"}];
+        // this.data = [{id:"1",text:"important mission1",list:"a good list",board:"bisli",labels:["general"],date:"2019-09-03T09:30",userid:"2"},
+        //              {id:"2",text:"important mission2",list:"better list",board:"bisli2",labels:["general","meme"],date:"2019-09-03T15:20",userid:"2"},
+        //              {id:"3",text:"important mission3",list:"better list",board:"bisli",labels:["bamba"],date:"2019-09-06T15:20",userid:"2"},
+        //              {id:"5",text:"important mission4",list:"better list",board:"bisli",labels:["meme","test"],date:undefined,userid:"2"},
+        //              {id:"13",text:"important mission5",list:"better list",board:"bisli",labels:["general"],date:"2019-09-08T14:05",userid:"2"},
+        //              {id:"139",text:"make pizza",list:"pro",board:"goodboard",labels:["meme"],date:"2019-08-15T13:05",userid:"2"}];
+
+
 
         // this.data = [{text:"important mission4",list:"better list",board:"bisli",labels:["meme","test"],date:"none",userid:"2"},
         //             {text:"important mission4",list:"better list",board:"bisli",labels:["meme","test"],date:"none",userid:"2"}];
@@ -73,22 +79,22 @@ export class MainpageComponent implements OnInit {
     {
 
     }
-    // onThemeChange(isdarktheme:boolean)
-    // {
-    //     if(isdarktheme)
-    //     {
-    //     this.overlayContainer.getContainerElement().classList.add(dark);
-    //     this.overlayContainer.getContainerElement().classList.remove(light);
-    //     this.componentCssClass = dark;
-    //     localStorage.setItem("theme", dark);
-    //     }
-    //     else
-    //     {
-    //     this.overlayContainer.getContainerElement().classList.add(light);
-    //     this.overlayContainer.getContainerElement().classList.remove(dark);
-    //     this.componentCssClass = light;
-    //     localStorage.setItem("theme", light);
-    //     }
-    // }
+    onThemeChange(isdarktheme:boolean)
+    {
+        if(isdarktheme)
+        {
+        this.overlayContainer.getContainerElement().classList.add(dark);
+        this.overlayContainer.getContainerElement().classList.remove(light);
+        this.componentCssClass = dark;
+        localStorage.setItem("theme", dark);
+        }
+        else
+        {
+        this.overlayContainer.getContainerElement().classList.add(light);
+        this.overlayContainer.getContainerElement().classList.remove(dark);
+        this.componentCssClass = light;
+        localStorage.setItem("theme", light);
+        }
+    }
 
 }

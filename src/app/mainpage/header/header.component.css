@@ -25,5 +25,16 @@
 
 .logout:hover
 {
-    color: red;
+    color: blue;
+}
+
+.theme
+{
+    padding-right: 50px;
+    transition-duration: 0.3s;
+}
+
+.theme:hover
+{
+    color:blue
 }

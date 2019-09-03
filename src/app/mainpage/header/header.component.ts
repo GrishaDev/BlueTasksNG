@@ -16,11 +16,11 @@ export class HeaderComponent implements OnInit {
   @Input() user:string;
   isdarktheme:boolean = false;
 
-  // @Output() themechange: EventEmitter<Boolean> =  new EventEmitter();
+  @Output() themechange: EventEmitter<Boolean> =  new EventEmitter();
 
   constructor(private router: Router,public overlayContainer: OverlayContainer) { }
 
-  // @HostBinding('class') componentCssClass;
+  @HostBinding('class') componentCssClass;
 
   ngOnInit() {
   }
@@ -30,25 +30,25 @@ export class HeaderComponent implements OnInit {
     this.router.navigate([""]);
   }
 
-  // toggleTheme()
-  // {
-  //   this.isdarktheme = !this.isdarktheme;
+  toggleTheme()
+  {
+    this.isdarktheme = !this.isdarktheme;
 
-  //   this.themechange.emit(this.isdarktheme);
+    this.themechange.emit(this.isdarktheme);
 
-  //   // if(this.isdarktheme)
-  //   // {
-  //   //   this.overlayContainer.getContainerElement().classList.add(dark);
-  //   //   this.overlayContainer.getContainerElement().classList.remove(light);
-  //   //   this.componentCssClass = dark;
-  //   //   localStorage.setItem("theme", dark);
-  //   // }
-  //   // else
-  //   // {
-  //   //   this.overlayContainer.getContainerElement().classList.add(light);
-  //   //   this.overlayContainer.getContainerElement().classList.remove(dark);
-  //   //   this.componentCssClass = light;
-  //   //   localStorage.setItem("theme", light);
-  //   // }
-  // }
+    // if(this.isdarktheme)
+    // {
+    //   this.overlayContainer.getContainerElement().classList.add(dark);
+    //   this.overlayContainer.getContainerElement().classList.remove(light);
+    //   this.componentCssClass = dark;
+    //   localStorage.setItem("theme", dark);
+    // }
+    // else
+    // {
+    //   this.overlayContainer.getContainerElement().classList.add(light);
+    //   this.overlayContainer.getContainerElement().classList.remove(dark);
+    //   this.componentCssClass = light;
+    //   localStorage.setItem("theme", light);
+    // }
+  }
 }

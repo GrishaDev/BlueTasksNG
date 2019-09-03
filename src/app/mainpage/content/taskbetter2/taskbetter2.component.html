@@ -2,11 +2,11 @@
     <div class="side">
         <mat-icon class="icon" (click)="expand()" >{{ expandvalue }}</mat-icon>
     </div>
-    <div class="rest">
+    <div class="rest" >
         <p *ngIf="time == 'today'"><small>{{ item.date.split(',')[1] }}</small></p>
         <p *ngIf="time == 'all'"><small>{{ item.date }}</small></p>
         <mat-divider></mat-divider>
-        <div class="content">
+        <div class="content" >
           {{ item.text }}
         </div>
         <div class="contentbot" *ngIf="isexpand">
@@ -23,11 +23,14 @@
   <div class="side">
       <mat-icon class="icon" (click)="expand()" >{{ expandvalue }}</mat-icon>
   </div>
-  <div class="rest">
+  <div class="rest" >
       <p><small>{{ item.date.split(',')[1] }}</small></p>
       <mat-divider></mat-divider>
       <div class="content">
         {{ item.text }}
+        <div class="delete" *ngIf="isexpand" (click)="deleteTask(item.id)">
+            <mat-icon>done</mat-icon>
+        </div>
       </div>
       <div class="contentbot" *ngIf="isexpand">
         <div> Labels: {{ item.labels }} </div>

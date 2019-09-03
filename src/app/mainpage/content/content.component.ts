@@ -22,6 +22,7 @@ export class ContentComponent implements OnInit {
   @Input() data;
   @Output() refreshRoot: EventEmitter<any> =  new EventEmitter(); 
 
+  hahaa:string = "red"
   filterd_data = [];
   filterd_data_backup = [];
   week_filterd_data = [];
