@@ -115,7 +115,6 @@
     /* padding: 30px; */
     /* background-color: yellow; */
     padding: 30px;
-    position: relative;
 }
 
 .aday
@@ -145,4 +144,44 @@
 .data
 {
     padding-top: 20px;
+}
+
+
+/* css is cancer */
+
+.newcontent
+{
+    /* background-color: green; */
+    position: absolute;
+    width: 70%;
+    left: 30%;
+    height: 90%;
+}
+
+.title
+{
+    /* background-color: blue; */
+    position: absolute;
+    height: 10%;
+    width: 100%;
+    top: 0;
+}
+
+.actualcontent
+{
+    /* background-color: lightskyblue; */
+    position: absolute;
+    height: 90%;
+    bottom: 0;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+.test
+{
+    /* background-color: red; */
+    position: relative;
+    height: 100px;
+    width: 30%;
 }

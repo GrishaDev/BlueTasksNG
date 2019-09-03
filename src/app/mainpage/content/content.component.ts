@@ -203,4 +203,9 @@ export class ContentComponent implements OnInit {
     return (itemdate.getDay() == date.getDay());
   }
 
+  haha(item)
+  {
+    console.log(item);
+  }
+
 }

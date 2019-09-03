@@ -1,6 +1,7 @@
 .task
 {
     width: 50%;
+    height: 50px;
     /* height: 100%; */
     position: relative;
     /* padding-top: 20px; */

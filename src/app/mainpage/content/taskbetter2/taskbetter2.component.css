@@ -1,9 +1,12 @@
 .hara
 {
-    height: 50%;
-    width: 100%;
-    background-color: pink !important; 
+    height: 100px;
+    width: 50%;
+    /* background-color: pink !important;  */
     position: relative;
+    margin-top: 30px;
+    margin-left: 20px;
+    transition: all 0.5s ease-in-out; 
 }
 
 .side
@@ -11,7 +14,7 @@
     height: 100%;
     width: 5%;
     left: 0;
-    background-color: gray;
+    /* background-color: gray; */
     position: absolute;
 }
 
@@ -20,12 +23,32 @@
     height: 100%;
     width: 95%;
     right: 0;
-    background-color: yellow;
+    /* background-color: yellow; */
     position: absolute;
+    transition: all 0.5s ease-in-out; 
+}
+
+.content
+{
+    position: relative;
+    left: 0;
+    top: 0;
+    height: 50px;
+    width: 100%;
+    padding: 15px;
+    transition: all 0.5s ease-in-out; 
 }
 
 .icon
 {
     display: flex;
     align-items: center;
+}
+
+.contentbot
+{
+    position: absolute;
+    transition: all 0.5s ease-in-out; 
+    padding-left: 15px;
+    bottom: 0;
 }

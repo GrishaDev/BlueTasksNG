@@ -1,9 +1,39 @@
-<div class="hara">
+<div *ngIf="time != '7'" class="hara" [style.height.px]="height">
+    <div class="side">
+        <mat-icon class="icon" (click)="expand()" >{{ expandvalue }}</mat-icon>
+    </div>
+    <div class="rest">
+        <p *ngIf="time == 'today'"><small>{{ item.date.split(',')[1] }}</small></p>
+        <p *ngIf="time == 'all'"><small>{{ item.date }}</small></p>
+        <mat-divider></mat-divider>
+        <div class="content">
+          {{ item.text }}
+        </div>
+        <div class="contentbot" *ngIf="isexpand">
+          <div> Labels: {{ item.labels }} </div>
+          <div> list {{ item.list }} </div>
+          <div> board: {{ item.board }} </div>
+        </div>
+        <mat-divider></mat-divider>
+    </div>
+  </div>
 
+
+<div *ngIf="time == '7'" class="hara" [style.height.px]="height">
   <div class="side">
-      <mat-icon class="icon" (click)="expand()" >expand_more</mat-icon>
+      <mat-icon class="icon" (click)="expand()" >{{ expandvalue }}</mat-icon>
   </div>
   <div class="rest">
-       garbage garbage garbage
+      <p><small>{{ item.date.split(',')[1] }}</small></p>
+      <mat-divider></mat-divider>
+      <div class="content">
+        {{ item.text }}
+      </div>
+      <div class="contentbot" *ngIf="isexpand">
+        <div> Labels: {{ item.labels }} </div>
+        <div> list {{ item.list }} </div>
+        <div> board: {{ item.board }} </div>
+      </div>
+      <mat-divider></mat-divider>
   </div>
 </div>
