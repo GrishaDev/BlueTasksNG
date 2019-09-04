@@ -2,6 +2,7 @@ import { Component, OnInit, Input,Output,EventEmitter } from '@angular/core';
 import { LogicService } from './logic.service';
 import { ifStmt } from '@angular/compiler/src/output/output_ast';
 import {MatDialog,MAT_DIALOG_DATA,MatDialogRef,MatPaginator,MatTableDataSource,MatSort} from '@angular/material';
+import { ThemesService } from '../../themes.service';
 
 export interface Data {
   text: string,
@@ -39,7 +40,7 @@ export class ContentComponent implements OnInit {
   // taskhover:boolean = false;
   // item:any = [];
 
-  constructor(private logic:LogicService) { }
+  constructor(private logic:LogicService, private themeservice: ThemesService) { }
 
   ngOnInit() {
     this.init()

@@ -1,6 +1,6 @@
-<div class="filters">
+<div class="filters" [style.backgroundColor] = "themeservice.filtersColor" [style.color]= "themeservice.textColor">
     <app-filters [checklist]='checkboxes' [boardlist]='boardlist' [listslist] = 'listslist' (data_labeled)="LabelsChanged($event)" (data_boarded)="BoardsChanged($event)"
-    (time)="timeChange($event)" (data_listed)="ListsChanged($event)"></app-filters>
+    (time)="timeChange($event)" (data_listed)="ListsChanged($event)" [style.color]= "themeservice.textColor"></app-filters>
 </div>
 
     <!-- <div class="content">
@@ -28,7 +28,7 @@
                 </div>
     </div> -->
 
-    <div class="newcontent" [style.backgroundColor]="color-primary-bg">
+    <div class="newcontent" [style.backgroundColor] = "themeservice.bgColor" [style.color]= "themeservice.textColor">
         <div class="title">
             <h4 mat-line *ngIf="time == 'today'"><b>Today </b>  <small>{{ aweek[0].toLocaleString().split(',')[0] }}</small></h4>
             <h4 mat-line *ngIf="time == 'all'"><b>All</b></h4>
@@ -56,6 +56,9 @@
             </div>
         </div>
     </div>
+    <!-- <div style="width: 20%; background-color: red; height: 5%; bottom: 0; position: absolute;">
+
+    </div> -->
 
     <div class="bot">
         <app-search (searchValue)="searched($event)"></app-search>

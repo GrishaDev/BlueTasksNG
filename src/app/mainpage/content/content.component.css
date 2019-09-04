@@ -155,7 +155,7 @@
     position: absolute;
     width: 70%;
     left: 30%;
-    height: 90%;
+    height: 100%;
     animation: 1s ease-out 0s 1 slideInFromRight;
     /* background-color: my-app-primary; */
     /* background-color: color-primary-bg; */
@@ -175,8 +175,9 @@
 {
     /* background-color: lightskyblue; */
     position: absolute;
-    height: 90%;
-    bottom: 0;
+    height: 80%;
+    top: 10%;
+    /* bottom: 0; */
     width: 100%;
     overflow-y: auto;
     overflow-x: auto;
@@ -189,3 +190,23 @@
     height: 100px;
     width: 30%;
 }
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    /* background: #f1f1f1;  */
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
