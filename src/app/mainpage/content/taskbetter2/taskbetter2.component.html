@@ -8,6 +8,9 @@
         <mat-divider></mat-divider>
         <div class="content" >
           {{ item.text }}
+          <div class="delete" *ngIf="isexpand" (click)="deleteTask(item.id)">
+            <mat-icon>done</mat-icon>
+          </div>
         </div>
         <div class="contentbot" *ngIf="isexpand">
           <div> Labels: {{ item.labels }} </div>

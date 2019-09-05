@@ -71,7 +71,7 @@ export class MainpageComponent implements OnInit {
         // console.log(this.data);
         console.log(this.data);
 
-    
+        this.checkForDarkTheme();
     }
 
     refresh()
@@ -122,7 +122,18 @@ export class MainpageComponent implements OnInit {
             this.componentCssClass = light;
             localStorage.setItem("theme", light);
         }
+    }
 
+    checkForDarkTheme()
+    {
+        let isdark = localStorage.getItem("theme");
+        if(isdark == dark)
+        {
+            let useless = this.themeservice.toggleTheme();
+            this.overlayContainer.getContainerElement().classList.add(dark);
+            this.overlayContainer.getContainerElement().classList.remove(light);
+            this.componentCssClass = dark;
+        }
     }
 
 }

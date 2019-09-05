@@ -30,7 +30,7 @@
 
     <div class="newcontent" [style.backgroundColor] = "themeservice.bgColor" [style.color]= "themeservice.textColor">
         <div class="title">
-            <h4 mat-line *ngIf="time == 'today'"><b>Today </b>  <small>{{ aweek[0].toLocaleString().split(',')[0] }}</small></h4>
+            <h4 mat-line *ngIf="time == 'today'"><b>Today </b>  <small>{{ aweek[0].toLocaleString('en-GB').split(',')[0] }}</small></h4>
             <h4 mat-line *ngIf="time == 'all'"><b>All</b></h4>
             <h4 mat-line *ngIf="time == '7'"><b>Next 7 days</b></h4>
         </div>
