@@ -21,8 +21,8 @@ import { Taskbetter2Component } from './mainpage/content/taskbetter2/taskbetter2
 
 const appRoutes: Routes =
 [
-  {path: '',component: LoginpageComponent},
-  {path: 'home',component:MainpageComponent},
+  {path: 'deprecated',component: LoginpageComponent},
+  {path: '',component:MainpageComponent},
 ];
 
 @NgModule({
