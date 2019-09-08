@@ -4,7 +4,8 @@ import { OverlayContainer} from '@angular/cdk/overlay';
 const dark = 'dark-theme';
 const light = 'default-theme';
 
-const filtersdark = '#2e2d2d';
+// #2e2d2d
+const filtersdark = '#383838';
 const filterswhite = '#ececec';
 
 const bgdark = '#3d3d3d';

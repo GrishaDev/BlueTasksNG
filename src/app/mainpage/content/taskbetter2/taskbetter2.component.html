@@ -1,13 +1,24 @@
-<div *ngIf="time != '7'" class="hara" [style.height.px]="height">
+<!-- [style.height.px]="height" -->
+<div *ngIf="time != '7'" class="hara" >
     <div class="side">
-        <mat-icon class="icon" (click)="expand()" >{{ expandvalue }}</mat-icon>
+        <!-- <mat-icon class="icon" (click)="expand()" >{{ expandvalue }}</mat-icon> -->
+        <!-- <svg width="32" height="32" viewBox="0 0 24 24" class="done"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm4.59-12.42L10 14.17l-2.59-2.58L6 13l4 4 8-8z"/></svg> -->
+        <mat-icon class="done">done</mat-icon>
     </div>
     <div class="rest" >
-        <p *ngIf="time == 'today'"><small>{{ item.date.split(',')[1] }}</small></p>
-        <p *ngIf="time == 'all'"><small>{{ item.date }}</small></p>
-        <mat-divider></mat-divider>
+        <p *ngIf="time == 'today'"><small class="time">{{ item.date.split(',')[1] }}</small></p>
+        <p *ngIf="time == 'all'"><small class="time">{{ item.date }}</small></p>
+        <!-- <mat-divider></mat-divider> -->
         <div class="content" >
           {{ item.text }}
+          <!-- Hello this is random text lol omega lol Hello this is random text lol omega lol Hello this is random text lol omega lol Hello this is random text lol omega lol
+          Hello this is random text lol omega lol Hello this is random text lol omega lol
+          Hello this is random text lol omega lol Hello this is random text lol omega lol Hello this is random text lol omega lol Hello this is random text lol omega lol -->
+          <div class="rightside">
+            <div *ngFor="let item of item.labels; let i = index" class="label" [style.background-color] = "'gray'">
+                <p class="labeltxt">{{ item }}</p>
+            </div>
+          </div>
           <div class="delete" *ngIf="isexpand" (click)="deleteTask(item.id)">
             <mat-icon>done</mat-icon>
           </div>
@@ -24,13 +35,21 @@
 
 <div *ngIf="time == '7'" class="hara" [style.height.px]="height">
   <div class="side">
-      <mat-icon class="icon" (click)="expand()" >{{ expandvalue }}</mat-icon>
+      <!-- <mat-icon class="icon" (click)="expand()" >{{ expandvalue }}</mat-icon> -->
+      <!-- <mat-icon class="done">check_circle_outline</mat-icon> -->
+      <!-- <svg width="32" height="32" viewBox="0 0 24 24" class="done"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm4.59-12.42L10 14.17l-2.59-2.58L6 13l4 4 8-8z"/></svg> -->
+      <mat-icon class="done">done</mat-icon>
   </div>
   <div class="rest" >
-      <p><small>{{ item.date.split(',')[1] }}</small></p>
-      <mat-divider></mat-divider>
+      <p><small class="time">{{ item.date.split(',')[1] }}</small></p>
+      <!-- <mat-divider></mat-divider> -->
       <div class="content">
         {{ item.text }}
+        <div class="rightside">
+            <div *ngFor="let item of item.labels; let i = index" class="label" [style.background-color] = "'gray'">
+                <p class="labeltxt">{{ item }}</p>
+            </div>
+        </div>
         <div class="delete" *ngIf="isexpand" (click)="deleteTask(item.id)">
             <mat-icon>done</mat-icon>
         </div>
