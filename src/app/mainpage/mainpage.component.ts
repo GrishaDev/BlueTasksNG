@@ -1,4 +1,4 @@
-import { Component, OnInit,HostBinding, Host, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit,HostBinding, Host, ChangeDetectorRef , AfterViewInit,ElementRef} from '@angular/core';
 import { UserService } from './user.service';
 import { OverlayContainer} from '@angular/cdk/overlay';
 import { ThemesService } from '../themes.service';
@@ -12,18 +12,18 @@ const light = 'default-theme';
   templateUrl: './mainpage.component.html',
   styleUrls: ['./mainpage.component.css']
 })
-export class MainpageComponent implements OnInit {
+export class MainpageComponent implements OnInit,AfterViewInit{
 
     @HostBinding('class.is-open')
     @HostBinding('class') componentCssClass;
-
     // @HostBinding('class') componentCssClass;
 
     user:string = "";
 
     data:any = [];
 
-    constructor(private userservice: UserService,private cd: ChangeDetectorRef,public overlayContainer: OverlayContainer, private themeservice: ThemesService) { }
+    constructor(private userservice: UserService,private cd: ChangeDetectorRef,public overlayContainer: OverlayContainer, private themeservice: ThemesService
+    ,private elementRef: ElementRef) { }
 
     ngOnInit() {
         // console.log("hello?");
@@ -135,6 +135,7 @@ export class MainpageComponent implements OnInit {
             this.overlayContainer.getContainerElement().classList.remove(light);
             this.componentCssClass = dark;
             localStorage.setItem("theme", dark);
+            this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = '#3d3d3d';
         }
          else
         {
@@ -142,6 +143,7 @@ export class MainpageComponent implements OnInit {
             this.overlayContainer.getContainerElement().classList.remove(dark);
             this.componentCssClass = light;
             localStorage.setItem("theme", light);
+            this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = 'whitesmoke';
         }
     }
 
@@ -156,5 +158,14 @@ export class MainpageComponent implements OnInit {
             this.componentCssClass = dark;
         }
     }
+
+    ngAfterViewInit(){
+         
+        let isdark = localStorage.getItem("theme");
+        if(isdark == dark)
+            this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = '#3d3d3d';
+        else
+            this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = 'whitesmoke';
+     }
 
 }

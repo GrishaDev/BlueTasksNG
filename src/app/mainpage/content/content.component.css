@@ -199,6 +199,13 @@
     font-weight: normal;
 }
 
+.mat-divider {
+    display: block;
+    margin: 0;
+    border-top-width: 1.5px;
+    border-top-style: solid;
+}
+
 .title2
 {
     font-size: 25px;

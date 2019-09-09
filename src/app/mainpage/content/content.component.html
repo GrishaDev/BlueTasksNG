@@ -48,6 +48,7 @@
                         <!-- <app-taskbetter2></app-taskbetter2> -->
                         <!-- <app-taskbetter *ngIf="todayCheck(item,day)" [item]='item' [time]='time' [aweek]='aweek' (refresh)="refresh($event)" class=""></app-taskbetter> -->
                         <app-taskbetter2 [item]='item' *ngIf="todayCheck(item,day)" [time]='time' [aweek]='aweek' (refresh)="refresh($event)"></app-taskbetter2>
+                        <!-- <mat-divider></mat-divider> -->
                     </ng-container >
                 </div>
             </div>

@@ -16,6 +16,8 @@ export class Taskbetter2Component implements OnInit {
   isexpand:boolean = false;
   height:number = 150;
   expandvalue:string = "expand_more";
+  colors:any = [{label:"inprogress",color:"violet"},{label:"general",color:"Turquoise"},{label:"tracking",color:"yellowgreen"},{label:"bug",color:"gold"},
+  {label:"help",color:"orange"},{label:"critical",color:"tomato"}];
 
   constructor(private userservice: UserService,private snackBar: MatSnackBar) { }
 
@@ -68,6 +70,18 @@ export class Taskbetter2Component implements OnInit {
     );
    }
 
+   getColor(label:string)
+   {
+      for(let i=0; i<this.colors.length; i++)
+      {
+          if(this.colors[i].label === label)
+          {
+            return this.colors[i].color;
+          }
+      }
+      return "gray";
+   }
+   
    openSnackBar(message: string, action: string) {
     this.snackBar.open(message, action, {
       duration: 4000,
