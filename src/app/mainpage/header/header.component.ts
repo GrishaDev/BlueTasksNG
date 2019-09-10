@@ -1,7 +1,7 @@
 import { Component, OnInit,Input,HostBinding,EventEmitter,Output } from '@angular/core';
 import {Router} from '@angular/router';
 import { OverlayContainer} from '@angular/cdk/overlay';
-// import { ThemesService } from '../../themes.service';
+import { ThemesService } from '../../themes.service';
 
 const dark = 'dark-theme';
 const light = 'default-theme';
@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
 
   @Output() themechange: EventEmitter<Boolean> =  new EventEmitter();
 
-  constructor(private router: Router,public overlayContainer: OverlayContainer) { }
+  constructor(private router: Router,public overlayContainer: OverlayContainer,private themeservice: ThemesService) { }
 
   @HostBinding('class') componentCssClass;
 

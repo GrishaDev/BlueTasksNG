@@ -1,0 +1,31 @@
+.biranplace
+{
+    position: absolute;
+    width: 13%;
+    height: 13%;
+    bottom: -12%;
+    right: -12%;
+    opacity: 0;
+    /* background-color: red; */
+    transition-duration: 0.5s;
+}
+
+.biran
+{
+    background-image: url('../../../../assets/biran.png');
+    background-size: cover;
+    background-position: center;
+    /* background-image:none !important; */
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.biranplace:hover
+{
+    bottom: 0px;
+    right: 0px;
+    opacity: 0.4;
+}

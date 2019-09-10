@@ -8,6 +8,9 @@ const light = 'default-theme';
 const filtersdark = '#383838';
 const filterswhite = '#ececec';
 
+const headerdark = '#212121';
+const headerwhite = '#db4c3f';
+
 const bgdark = '#3d3d3d';
 const bgwhite = '';
 const textdark = '#000000';
@@ -23,6 +26,7 @@ export class ThemesService {
   filtersColor:string = "";
   bgColor:string = "";
   textColor:string = "";
+  headerColor:string = "";
 
   constructor(public overlayContainer: OverlayContainer) { }
 
@@ -42,6 +46,7 @@ export class ThemesService {
       this.filtersColor = filtersdark;
       this.bgColor = bgdark;
       this.textColor = textwhite;
+      this.headerColor = headerdark;
       // localStorage.setItem("theme", dark);
       return true;
     }
@@ -53,6 +58,7 @@ export class ThemesService {
       this.filtersColor = filterswhite;
       this.bgColor = bgwhite;
       this.textColor = textdark;
+      this.headerColor = headerwhite;
       // localStorage.setItem("theme", light);
       return false;
     }

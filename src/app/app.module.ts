@@ -18,6 +18,7 @@ import { FiltersComponent } from './mainpage/content/filters/filters.component';
 import { SearchComponent } from './mainpage/content/search/search.component';
 import { TaskbetterComponent } from './mainpage/content/taskbetter/taskbetter.component';
 import { Taskbetter2Component } from './mainpage/content/taskbetter2/taskbetter2.component';
+import { BiranplaceComponent } from './mainpage/content/biranplace/biranplace.component';
 
 const appRoutes: Routes =
 [
@@ -36,7 +37,8 @@ const appRoutes: Routes =
     FiltersComponent,
     SearchComponent,
     TaskbetterComponent,
-    Taskbetter2Component
+    Taskbetter2Component,
+    BiranplaceComponent
   ],
   imports: [
     BrowserModule,

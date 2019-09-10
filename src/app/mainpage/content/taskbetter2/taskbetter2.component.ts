@@ -14,6 +14,8 @@ export class Taskbetter2Component implements OnInit {
   @Input() aweek;
   @Output() refresh: EventEmitter<string> =  new EventEmitter();
   isexpand:boolean = false;
+  checked:boolean = false;
+
   height:number = 150;
   expandvalue:string = "expand_more";
   colors:any = [{label:"inprogress",color:"violet"},{label:"general",color:"Turquoise"},{label:"tracking",color:"yellowgreen"},{label:"bug",color:"gold"},
@@ -43,14 +45,13 @@ export class Taskbetter2Component implements OnInit {
   deleteTask(id)
   {
     // this.openSnackBar("Hey","ok");
-
     console.log("deleting item "+id);
 
     this.userservice.deleteTask(id).subscribe(
       (res:any)=>
       {
         console.log(res);
-
+        
         if(res.status)
         {
           console.log("succesful delete");
@@ -65,6 +66,7 @@ export class Taskbetter2Component implements OnInit {
       },
       err => {
         console.log("Error occured+ :: "+err);
+        this.checked = false;
         this.openSnackBar("Error contacting API. Try again soon","Ouch");
       }
     );
@@ -81,7 +83,7 @@ export class Taskbetter2Component implements OnInit {
       }
       return "gray";
    }
-   
+
    openSnackBar(message: string, action: string) {
     this.snackBar.open(message, action, {
       duration: 4000,
