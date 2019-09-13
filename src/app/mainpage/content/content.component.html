@@ -36,7 +36,7 @@
         </div>
         <div class="actualcontent">
             <div *ngIf="time == '7'" class="">
-                <div *ngFor="let day of aweek; let i = index" class="" style="padding: 30px">
+                <div *ngFor="let day of aweek; let i = index" class="" style="padding-left: 30px; padding-top: 30px;">
                     <b *ngIf="i === 0">Today  <small class="time">{{ aweek[i].toLocaleString('en-GB').split(',')[0] }}</small></b> 
                     <b *ngIf="i === 1">Tomorrow  <small class="time">{{ aweek[i].toLocaleString('en-GB').split(',')[0] }}</small></b> 
                     <b *ngIf="i > 1">{{ weekdays[day.getDay()] }}   <small class="time">{{ aweek[i].toLocaleString('en-GB').split(',')[0] }}</small></b>

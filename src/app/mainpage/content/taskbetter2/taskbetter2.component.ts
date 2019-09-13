@@ -1,4 +1,4 @@
-import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
+import { Component, OnInit,Input,Output,EventEmitter,Renderer2,ElementRef } from '@angular/core';
 import { UserService } from '../../user.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 
@@ -21,11 +21,23 @@ export class Taskbetter2Component implements OnInit {
   colors:any = [{label:"inprogress",color:"violet"},{label:"general",color:"Turquoise"},{label:"tracking",color:"yellowgreen"},{label:"bug",color:"gold"},
   {label:"help",color:"orange"},{label:"critical",color:"tomato"}];
 
-  constructor(private userservice: UserService,private snackBar: MatSnackBar) { }
+  constructor(private userservice: UserService,private snackBar: MatSnackBar,private renderer: Renderer2,private el: ElementRef) { }
 
   ngOnInit() {
+    // console.log("hey");
+    // this.renderer.addClass(this.el.nativeElement, 'enter');
   }
 
+  // ngOnChanges()
+  // {
+  //   console.log("change");
+  // }
+
+  ngOnDestroy()
+  {
+    // console.log("lol");
+    // this.renderer.addClass(this.el.nativeElement, 'leave');
+  }
   expand()
   {
     this.isexpand = !this.isexpand;

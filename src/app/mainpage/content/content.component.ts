@@ -81,7 +81,8 @@ export class ContentComponent implements OnInit {
       let date:Date = new Date(this.filterd_data[i].date);
       if(!isNaN(date.getTime()))
       {
-        this.filterd_data[i].date = date.toLocaleString('en-GB');
+        // this.filterd_data[i].date = date.toLocaleString('en-GB');  // javascript dates are dogshit
+        this.filterd_data[i].date = date.toLocaleString();
       }
       else
         this.filterd_data[i].date="none";

@@ -1,16 +1,54 @@
+@keyframes slideInFromRight {
+    0% {
+      transform: translateX(100%);
+    }
+    /* 90% {
+      transform: translateX(+2%);
+    } */
+    100% {
+        transform: translateX(0%);
+      }
+  }
+
+  @keyframes slideOutFromRight {
+    0% {
+      transform: translateX(0);
+    }
+    /* 90% {
+      transform: translateX(+2%);
+    } */
+    100% {
+        transform: translateX(100%);
+      }
+  }
+
 .hara
 {
     /* height: 500px; */
-    min-height: 150px;
+    min-height: 90px;
     width: 55%;
     /* background-color: pink !important;  */
     position: relative;
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
+    margin-top: 10px;
+    margin-bottom: 10px;
     /* margin-left: 20px; */
     transition: all 0.3s ease-in-out;
     overflow: hidden;
     min-width: 700px;
 }
+
+.enter
+{
+    animation: 1s ease-out 0s 1 slideInFromRight;
+}
+
+.hara.leave
+{
+    animation: 1s ease-out 0s 1 slideOutFromRight;
+}
+
+
 
 .hara:hover
 {
@@ -136,7 +174,8 @@
 .done
 {
     transition-duration: 0.5s;
-    padding-bottom: 32px;
+    /* padding-bottom: 32px; */
+    padding-top: 25px;
     padding-left: 15px;
     transition: all 0.5s ease-in-out;
 }
@@ -152,4 +191,11 @@
     margin: 0;
     border-top-width: 1.5px;
     border-top-style: solid;
+}
+
+@media only screen and (max-width: 767px) {
+    .hara
+    {
+        min-width: 600px;
+    }
 }
