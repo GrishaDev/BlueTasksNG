@@ -26,24 +26,6 @@ export class MainpageComponent implements OnInit,AfterViewInit{
     ,private elementRef: ElementRef) { }
 
     ngOnInit() {
-        // console.log("hello?");
-        // this.userservice.change.subscribe(user => {
-        //     this.user = user;
-        //     console.log(user);
-        // });
-        // console.log("??????? "+this.userservice.user);
-        
-        
-        // this.overlayContainer.getContainerElement().classList.add(dark);
-        // this.overlayContainer.getContainerElement().classList.remove(light);
-        // this.componentCssClass = dark;
-
-        
-        // this.GetAuth();
-
-        // this.userservice.set("HAHA",3);
-        // this.user = this.userservice.user;
-
 
 
         // Uncomment this for prod:
@@ -60,7 +42,6 @@ export class MainpageComponent implements OnInit,AfterViewInit{
         // ==============================
         
 
-
         // Uncomment this for dev:
 
         this.data = [{id:"1",text:"important mission1",list:"a good list",board:"bisli",labels:["general"],date:"2019-09-13T09:30",userid:"2"},
@@ -72,11 +53,6 @@ export class MainpageComponent implements OnInit,AfterViewInit{
 
         // ==============================
 
-
-
-        // this.data = [{text:"important mission4",list:"better list",board:"bisli",labels:["meme","test"],date:"none",userid:"2"},
-        //             {text:"important mission4",list:"better list",board:"bisli",labels:["meme","test"],date:"none",userid:"2"}];
-        // console.log(this.data);
         console.log(this.data);
 
         this.checkForDarkTheme();
@@ -114,20 +90,6 @@ export class MainpageComponent implements OnInit,AfterViewInit{
 
     onThemeChange(isdarktheme:boolean)
     {
-        // if(isdarktheme)
-        // {
-        // this.overlayContainer.getContainerElement().classList.add(dark);
-        // this.overlayContainer.getContainerElement().classList.remove(light);
-        // this.componentCssClass = dark;
-        // localStorage.setItem("theme", dark);
-        // }
-        // else
-        // {
-        // this.overlayContainer.getContainerElement().classList.add(light);
-        // this.overlayContainer.getContainerElement().classList.remove(dark);
-        // this.componentCssClass = light;
-        // localStorage.setItem("theme", light);
-        // }
         let isdark = this.themeservice.toggleTheme();
         if(isdark)
         {
