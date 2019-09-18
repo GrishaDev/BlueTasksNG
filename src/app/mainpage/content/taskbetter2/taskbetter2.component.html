@@ -19,10 +19,15 @@
           Hello this is random text lol omega lol Hello this is random text lol omega lol
           Hello this is random text lol omega lol Hello this is random text lol omega lol Hello this is random text lol omega lol Hello this is random text lol omega lol -->
           <div class="rightside">
-            <div *ngFor="let item of item.labels; let i = index" class="label" [style.background-color] = "getColor(item)">
+
+            <!-- <div *ngFor="let item of item.labels; let i = index" class="label" [style.background-color] = "getColor(item)">
                 <p class="labeltxt">{{ item }}</p>
-            </div>
+            </div> -->
+            
+            <mat-icon *ngFor="let item of item.labels; let i=index" [style.color]="getColor(item)"
+            style="font-size: 40px; padding-left: 20px;" [matTooltip]="item" matTooltipClass="tooltip" matTooltipPosition="above">label</mat-icon>
           </div>
+          <!-- [ngStyle]="{'color':  red}" -->
           <!-- <div class="delete" *ngIf="isexpand" (click)="deleteTask(item.id)">
             <mat-icon class="done" (click)="deleteTask(item.id)">done</mat-icon>
           </div> -->

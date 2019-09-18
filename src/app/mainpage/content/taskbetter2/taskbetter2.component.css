@@ -207,9 +207,36 @@
     border-top-style: solid;
 }
 
+::ng-deep .mat-tooltip
+{
+    font-size: 20px;
+}
+
 @media only screen and (max-width: 767px) {
     .hara
     {
         min-width: 600px;
     }
 }
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+    height: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    /* background: #f1f1f1;  */
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
