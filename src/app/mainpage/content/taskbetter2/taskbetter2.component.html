@@ -9,11 +9,12 @@
     </div>
     <div class="rest" >
         <p *ngIf="time == 'today'" style="margin-block-end: 0"><small class="time">{{ item.date.split(',')[1] }}</small></p>
-        <p *ngIf="time == 'all'" style="margin-block-end: 0"><small class="time">{{ item.date }}</small></p>
+        <p *ngIf="time == 'all'" style="margin-block-end: 0"><small class="time">{{ getHumanDate(item.date) }}</small></p>
         <!-- <mat-divider></mat-divider> -->
         <div class="content" >
-          {{ item.text }}
-          
+            <div class="leftside">
+                {{ item.text }}
+            </div>
           <!-- Hello this is random text lol omega lol Hello this is random text lol omega lol Hello this is random text lol omega lol Hello this is random text lol omega lol
           Hello this is random text lol omega lol Hello this is random text lol omega lol
           Hello this is random text lol omega lol Hello this is random text lol omega lol Hello this is random text lol omega lol Hello this is random text lol omega lol -->

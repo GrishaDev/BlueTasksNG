@@ -49,10 +49,10 @@ export class Taskbetter2Component implements OnInit {
     this.changeState();
   }
 
-  ngOnChanges()
-  {
-    console.log("change");
-  }
+  // ngOnChanges()
+  // {
+  //   console.log("change");
+  // }
 
   ngOnDestroy()
   {
@@ -118,6 +118,11 @@ export class Taskbetter2Component implements OnInit {
       return "gray";
    }
 
+   getHumanDate(str)
+   {
+      let date:Date = new Date(str);
+      return !isNaN(date.getTime()) ? date.toLocaleString('en-GB') : "none"
+   }
    openSnackBar(message: string, action: string) {
     this.snackBar.open(message, action, {
       duration: 4000,
