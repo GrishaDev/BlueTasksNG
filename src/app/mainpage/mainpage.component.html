@@ -1,5 +1,5 @@
 <app-header [user]='user' [tasksamount]='data.length' (themechange)="onThemeChange($event)"></app-header>
-<app-content *ngIf="!error" [data]='data' class="content" (refreshRoot)="refresh()"></app-content>
+<app-content *ngIf="!error && !loading" [data]='data' class="content" (refreshRoot)="refresh()"></app-content>
 
 <app-loading *ngIf="loading"></app-loading>
 <div *ngIf="error" class="error">

@@ -27,7 +27,7 @@
                 <app-taskbetter2 *ngFor="let item of filterd_data" [item]='item' [time]='time' [aweek]='aweek' (refresh)="refresh($event)"></app-taskbetter2>
             </div>
             <div *ngIf="time == 'today'" class="more animate">
-                    <app-taskbetter2 *ngFor="let item of filterd_data" [item]='item' [time]='time' [aweek]='aweek' (refresh)="refresh($event)"></app-taskbetter2>
+                <app-taskbetter2 *ngFor="let item of filterd_data" [item]='item' [time]='time' [aweek]='aweek' (refresh)="refresh($event)"></app-taskbetter2>
             </div>
         </div>
     </div>
