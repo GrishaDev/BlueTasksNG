@@ -14,6 +14,7 @@ const light = 'default-theme';
 export class HeaderComponent implements OnInit {
 
   @Input() user:string;
+  @Input() tasksamount:number;
   isdarktheme:boolean = false;
 
   @Output() themechange: EventEmitter<Boolean> =  new EventEmitter();

@@ -8,13 +8,14 @@
     <span><img src="assets/clipboard.png" class="avatar"></span>
     <span>Hello {{ user }}</span>
     <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">verified_user</mat-icon>
+    <span class="amount">Tasks: {{ tasksamount }}</span>
     <span class="example-spacer"></span>
     <!-- <button mat-button [matMenuTriggerFor]="appMenu"><mat-icon>settings</mat-icon></button> -->
     <!-- <mat-icon class="theme" (click)="toggleTheme()">colorize</mat-icon> -->
     <mat-slide-toggle
           class="theme"
           (change)="toggleTheme()">
-        Change Theme
+        Theme
     </mat-slide-toggle>
     <!-- <mat-icon class="logout" (click)="logout()">arrow_back</mat-icon> -->
 </mat-toolbar>

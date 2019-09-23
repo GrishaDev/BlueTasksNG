@@ -161,6 +161,11 @@
     /* background-color: color-primary-bg; */
 }
 
+.animate
+{
+    animation: 0.5s ease-out 0s 1 slideInFromRight;
+    
+}
 .title
 {
     /* background-color: blue; */
@@ -180,7 +185,7 @@
     /* bottom: 0; */
     width: 100%;
     overflow-y: auto;
-    overflow-x: auto;
+    overflow-x: hidden;
 }
 
 .test
