@@ -88,6 +88,7 @@
      bottom: 0;
     left: 0;
     width: 10%;
+    min-width: 150px;
     /* width: 50%; */
     /* width: 10%;
     height: 10%;
@@ -164,22 +165,22 @@
 .animate
 {
     animation: 0.5s ease-out 0s 1 slideInFromRight;
-    
 }
 .title
 {
     /* background-color: blue; */
-    position: absolute;
-    height: 10%;
+    /* position: absolute; */
+    height: 5%;
     width: 100%;
     padding: 30px;
+    /* min-height: 350px; */
     top: 0;
 }
 
 .actualcontent
 {
     /* background-color: lightskyblue; */
-    position: absolute;
+    /* position: absolute; */
     height: 80%;
     top: 10%;
     /* bottom: 0; */
@@ -254,5 +255,10 @@
         top: 10%;
         left: 25%;
         width: 30%;
+    }
+
+    .actualcontent
+    {
+        overflow-x: auto;
     }
   }

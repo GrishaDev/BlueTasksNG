@@ -21,6 +21,7 @@ import { TaskbetterComponent } from './mainpage/content/taskbetter/taskbetter.co
 import { Taskbetter2Component } from './mainpage/content/taskbetter2/taskbetter2.component';
 import { BiranplaceComponent } from './mainpage/content/biranplace/biranplace.component';
 import { LoadingComponent } from './mainpage/loading/loading.component';
+import { NotasksComponent } from './mainpage/content/notasks/notasks.component';
 
 const appRoutes: Routes =
 [
@@ -41,7 +42,8 @@ const appRoutes: Routes =
     TaskbetterComponent,
     Taskbetter2Component,
     BiranplaceComponent,
-    LoadingComponent
+    LoadingComponent,
+    NotasksComponent
   ],
   imports: [
     BrowserModule,

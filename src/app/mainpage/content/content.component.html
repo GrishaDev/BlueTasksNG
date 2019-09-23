@@ -2,7 +2,6 @@
     <app-filters [checklist]='checkboxes' [boardlist]='boardlist' [listslist] = 'listslist' (data_labeled)="LabelsChanged($event)" (data_boarded)="BoardsChanged($event)"
     (time)="timeChange($event)" (data_listed)="ListsChanged($event)" [style.color]= "themeservice.textColor"></app-filters>
 </div>
-
     <div class="newcontent" [style.backgroundColor] = "themeservice.bgColor" [style.color]= "themeservice.textColor">
         <div class="title">
             <h4 mat-line *ngIf="time == 'today'"><b class="title2">Today </b>  <small class="time">{{ aweek[0].toLocaleString('en-GB').split(',')[0] }}</small></h4>
@@ -11,23 +10,30 @@
         </div>
         <div class="actualcontent">
             <div *ngIf="time == '7'" class="animate">
-                <div *ngFor="let day of aweek; let i = index" class="" style="padding-left: 30px; padding-top: 30px;">
-                    <b *ngIf="i === 0">Today  <small class="time">{{ aweek[i].toLocaleString('en-GB').split(',')[0] }}</small></b> 
-                    <b *ngIf="i === 1">Tomorrow  <small class="time">{{ aweek[i].toLocaleString('en-GB').split(',')[0] }}</small></b> 
-                    <b *ngIf="i > 1">{{ weekdays[day.getDay()] }}   <small class="time">{{ aweek[i].toLocaleString('en-GB').split(',')[0] }}</small></b>
-                    <mat-divider style="margin-top: 10px; width: 50%;"></mat-divider>
-
-                    <ng-container *ngFor="let item of filterd_data">
-                        <app-taskbetter2 [item]='item' *ngIf="todayCheck(item,day)" [time]='time' [aweek]='aweek' (refresh)="refresh($event)"></app-taskbetter2>
-                    </ng-container >
+                <ng-container *ngIf="data.length > 0">
+                    <div *ngFor="let day of aweek; let i = index" class="" style="padding-left: 30px; padding-top: 30px;">
+                        <b *ngIf="i === 0">Today  <small class="time">{{ aweek[i].toLocaleString('en-GB').split(',')[0] }}</small></b> 
+                        <b *ngIf="i === 1">Tomorrow  <small class="time">{{ aweek[i].toLocaleString('en-GB').split(',')[0] }}</small></b> 
+                        <b *ngIf="i > 1">{{ weekdays[day.getDay()] }}   <small class="time">{{ aweek[i].toLocaleString('en-GB').split(',')[0] }}</small></b>
+                        <mat-divider style="margin-top: 10px; width: 50%;"></mat-divider>
+                        <ng-container *ngFor="let item of filterd_data">
+                            <app-taskbetter2 [item]='item' *ngIf="todayCheck(item,day)" [time]='time' [aweek]='aweek' (refresh)="refresh($event)"></app-taskbetter2>
+                        </ng-container >
+                    </div>
+                </ng-container>
+            </div>
+            <ng-container *ngIf="data.length > 0">
+                <div *ngIf="time == 'all'" class="more animate">
+                    <app-taskbetter2 *ngFor="let item of filterd_data" [item]='item' [time]='time' [aweek]='aweek' (refresh)="refresh($event)"></app-taskbetter2>
                 </div>
-            </div>
-
-            <div *ngIf="time == 'all'" class="more animate">
-                <app-taskbetter2 *ngFor="let item of filterd_data" [item]='item' [time]='time' [aweek]='aweek' (refresh)="refresh($event)"></app-taskbetter2>
-            </div>
-            <div *ngIf="time == 'today'" class="more animate">
-                <app-taskbetter2 *ngFor="let item of filterd_data" [item]='item' [time]='time' [aweek]='aweek' (refresh)="refresh($event)"></app-taskbetter2>
+                <div *ngIf="time == 'today'" class="more animate">
+                    <app-taskbetter2 *ngFor="let item of filterd_data" [item]='item' [time]='time' [aweek]='aweek' (refresh)="refresh($event)"></app-taskbetter2>
+                </div>
+            </ng-container>
+            <!-- <div class="more" *ngIf="time == '7'">
+            </div> -->
+            <div style="margin: 40px; margin-top: 80px;">
+                <app-notasks *ngIf="data.length == 0"></app-notasks>
             </div>
         </div>
     </div>
