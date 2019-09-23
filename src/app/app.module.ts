@@ -13,12 +13,14 @@ import { ContentComponent } from './mainpage/content/content.component';
 import { TaskComponent } from './mainpage/content/task/task.component';
 
 import {MatButtonModule,MatIconModule,MatInputModule,MatFormFieldModule,MatToolbarModule
-,MatCardModule,MatCheckboxModule,MatExpansionModule,MatDividerModule,MatTreeModule,MatMenuModule,MatSnackBarModule,MatListModule,MatSlideToggleModule,MatTooltipModule} from '@angular/material';
+,MatCardModule,MatCheckboxModule,MatExpansionModule,MatDividerModule,MatTreeModule,MatMenuModule,MatSnackBarModule,MatListModule,MatSlideToggleModule,
+MatTooltipModule,MatProgressSpinnerModule} from '@angular/material';
 import { FiltersComponent } from './mainpage/content/filters/filters.component';
 import { SearchComponent } from './mainpage/content/search/search.component';
 import { TaskbetterComponent } from './mainpage/content/taskbetter/taskbetter.component';
 import { Taskbetter2Component } from './mainpage/content/taskbetter2/taskbetter2.component';
 import { BiranplaceComponent } from './mainpage/content/biranplace/biranplace.component';
+import { LoadingComponent } from './mainpage/loading/loading.component';
 
 const appRoutes: Routes =
 [
@@ -38,7 +40,8 @@ const appRoutes: Routes =
     SearchComponent,
     TaskbetterComponent,
     Taskbetter2Component,
-    BiranplaceComponent
+    BiranplaceComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
@@ -60,6 +63,7 @@ const appRoutes: Routes =
     MatListModule,
     MatSlideToggleModule,
     MatTooltipModule,
+    MatProgressSpinnerModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],

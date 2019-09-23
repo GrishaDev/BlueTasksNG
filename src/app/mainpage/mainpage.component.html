@@ -1,7 +1,9 @@
 <app-header [user]='user' [tasksamount]='data.length' (themechange)="onThemeChange($event)"></app-header>
-<app-content *ngIf="data.length > 0" [data]='data' class="content" (refreshRoot)="refresh()"></app-content>
-<div *ngIf="data.length == 0" class="error">
+<app-content *ngIf="!error" [data]='data' class="content" (refreshRoot)="refresh()"></app-content>
+
+<app-loading *ngIf="loading"></app-loading>
+<div *ngIf="error" class="error">
     <mat-icon style="font-size: 3em; margin-right: 0.5em">sentiment_dissatisfied</mat-icon>
-    <p style="color:red; font-size: 2em">No tasks/No data</p>
+    <p style="color:red; font-size: 2em">Unknown error</p>
 </div>
 

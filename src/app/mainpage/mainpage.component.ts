@@ -19,7 +19,8 @@ export class MainpageComponent implements OnInit,AfterViewInit{
     // @HostBinding('class') componentCssClass;
 
     user:string = "";
-
+    loading:boolean = true;
+    error:boolean = false;
     data:any = [];
 
     constructor(private userservice: UserService,private cd: ChangeDetectorRef,public overlayContainer: OverlayContainer, private themeservice: ThemesService
@@ -38,7 +39,7 @@ export class MainpageComponent implements OnInit,AfterViewInit{
         // });
 
 
-        // this.GetAuth();
+        this.GetAuth();
         
 
         // ==============================
@@ -46,13 +47,14 @@ export class MainpageComponent implements OnInit,AfterViewInit{
 
         // Uncomment this for dev:
 
-        this.data = [{id:"1",text:"important mission1 important mission1 important mission1 important mission1 important mission1 important mission1"+
-        "important mission1 important mission1 important mission1 important mission1 important mission1 important mission1",list:"a good list",board:"bisli",labels:["general"],date:"2019-09-13T09:30",userid:"2"},
-                     {id:"2",text:"important mission2",list:"better list",board:"bisli2",labels:["general","meme"],date:"2019-09-13T15:20",userid:"2"},
-                     {id:"3",text:"important mission3",list:"better list",board:"bisli",labels:["bamba"],date:"2019-09-16T15:20",userid:"2"},
-                     {id:"5",text:"important mission4",list:"better list",board:"bisli",labels:["meme","test"],date:undefined,userid:"2"},
-                     {id:"13",text:"important mission5",list:"better list",board:"bisli",labels:["general"],date:"2019-09-16T14:05",userid:"2"},
-                     {id:"139",text:"make pizza",list:"pro",board:"goodboard",labels:["meme"],date:"2019-09-18T13:05",userid:"2"}];
+        // this.loading = false;
+        // this.data = [{id:"1",text:"important mission1 important mission1 important mission1 important mission1 important mission1 important mission1"+
+        // "important mission1 important mission1 important mission1 important mission1 important mission1 important mission1",list:"a good list",board:"bisli",labels:["general"],date:"2019-09-13T09:30",userid:"2"},
+        //              {id:"2",text:"important mission2",list:"better list",board:"bisli2",labels:["general","meme"],date:"2019-09-13T15:20",userid:"2"},
+        //              {id:"3",text:"important mission3",list:"better list",board:"bisli",labels:["bamba"],date:"2019-09-16T15:20",userid:"2"},
+        //              {id:"5",text:"important mission4",list:"better list",board:"bisli",labels:["meme","test"],date:undefined,userid:"2"},
+        //              {id:"13",text:"important mission5",list:"better list",board:"bisli",labels:["general"],date:"2019-09-16T14:05",userid:"2"},
+        //              {id:"139",text:"make pizza",list:"pro",board:"goodboard",labels:["meme"],date:"2019-09-18T13:05",userid:"2"}];
 
         // ==============================
 
@@ -77,17 +79,28 @@ export class MainpageComponent implements OnInit,AfterViewInit{
     {
         let it = this;
 
-        this.userservice.getUser().subscribe(function(user: any) {
+        this.userservice.getUser().subscribe((user: any)=> {
 
             it.userservice.set(user.user,user.id);
             it.user = it.userservice.user;
 
             it.userservice.getData().subscribe(data => {
-
                 it.data = data;
                 it.cd.detectChanges();
+                it.loading= false;
                 console.log(data);
+            },err => {
+                console.log("Error occured:: ");
+                console.log(err);
+                it.error = true;
+                it.loading=false;
             });
+
+        },err => {
+            console.log("Error occured:: ");
+            console.log(err);
+            it.error = true;
+            it.loading=false;
         });
     }
 
